@@ -28,12 +28,12 @@ const Navbar = () => {
 
   React.useEffect(() => {
     if (isOpen) {
-      document.body.style.overflowY = "hidden";
+      document.body.style.overflowY = "scroll";
     } else {
-      document.body.style.overflowY = "";
+      document.body.style.overflowY = "scroll;";
     }
     return () => {
-      document.body.style.overflowY = "hidden";
+      document.body.style.overflowY = "scroll";
     };
   }, [isOpen]);
 

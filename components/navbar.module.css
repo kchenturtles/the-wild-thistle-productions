@@ -105,7 +105,7 @@
   margin-left:auto;
   border-style: dotted;
   border-width: 0.5rem;
-  border-bottom:0;
+  /* border-bottom:0; */
   border-color:var(--color-brand);
   padding-left: auto;
   text-align: right;
