@@ -33,7 +33,7 @@ const Navbar = () => {
       document.body.style.overflowY = "";
     }
     return () => {
-      document.body.style.overflowY = "";
+      document.body.style.overflowY = "hidden";
     };
   }, [isOpen]);
 
@@ -50,7 +50,7 @@ const Navbar = () => {
           </Link>
           <div className = {styles.Links}>
           <ul className={styles.navbarLinks}>
-            <Link href = "/shows"> Shows </Link>
+            <Link href = "/shows" onClick = {() => {setOpen(false)}}> Shows </Link>
           </ul>
           <button className={styles.mobileNavToggle} onClick={() => setOpen(!isOpen)}>
             {isOpen ? (
