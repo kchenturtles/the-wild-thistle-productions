@@ -1,0 +1,13 @@
+.mainImage {
+  margin: auto;
+  max-width: 300px;
+  height:auto;
+}
+
+.introText{
+  padding:5rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: x-large;
+  font-variant-ligatures: additional-ligatures;
+  color:palegoldenrod;
+}

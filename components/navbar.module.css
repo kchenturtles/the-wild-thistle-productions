@@ -1,0 +1,167 @@
+.wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  background-color: var(--color-neutral-100);
+  color: white;
+  font-size: 1.125rem;
+  border-bottom: 0.5rem;
+  border-top:0rem;
+  border-left:0rem;
+  border-right:0rem;
+  border-color:var(--color-brand);
+  border-style: solid;
+  margin-bottom:5rem;
+}
+
+@media (max-width: 767.5px) {
+  .content {
+    padding: 0 2rem;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  height: 6rem;
+}
+
+.logo {
+  height: 100%;
+}
+
+.logo img {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+}
+
+.wrapper ul {
+  list-style: none;
+  padding: 0;
+}
+
+.navbarLinks {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .navbarLinks {
+    display: block;
+    font-size:larger;
+  }
+}
+
+@media (min-width: 768px) {
+  .Links {
+    display: flex;
+    justify-content: right;
+    gap: 2rem;
+  }
+}
+
+.link {
+  padding: 1rem 0;
+  transition: opacity 0.15s;
+}
+
+.link:hover {
+  opacity: 80%;
+}
+
+.mobileNavToggle {
+  appearance:inherit;
+  border: 1rem;
+  background: inherit;
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+@media (min-width: 768px) {
+  .mobileNavToggle {
+    display: inherit;
+  }
+}
+
+@media (min-width:768px) {
+  .extraShowLink {
+    color:var(--color-neutral-100)
+  }
+}
+
+.extraShowLink {
+  display: block;
+  font-size: larger;
+  margin:2.5rem;
+}
+
+.mobileNav {
+  height: 100vh;
+  max-width:400px;
+  margin-left:auto;
+  border-style: dotted;
+  border-width: 0.5rem;
+  border-bottom:0;
+  border-color:var(--color-brand);
+  padding-left: auto;
+  text-align: right;
+  padding-right: auto;
+  padding-top:5rem;
+  font-size: larger;
+  margin-top:-0.5rem;
+}
+
+.spacer {
+  height:0.5rem;
+  background-color:var(--color-brand);
+  margin-right:400px;
+}
+
+.mobileNav .link {
+  display: flex;
+  font-size: 1.5rem;
+}
+
+.mobileNavLink {
+  display: flex;
+  font-size: larger;
+  margin:2.5rem;
+  margin-top:1rem;
+  width:fit-content;
+}
+
+.mediaIcons {
+  display: flex;
+  flex-wrap: wrap;
+  padding:2rem;
+}
+
+.title {
+  text-align: left;
+  width:100%;
+  font-size: larger;
+  padding-left:1rem;
+}
+
+.icon {
+  width:100px;
+  height:100px;
+}
+
+.donateButton {
+  background-color: var(--color-brand);
+  border: 2px solid var(--color-brand);
+  border-radius: 1em;
+  color: white;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.donateButton:hover {
+  background-color: transparent;
+  color: var(--color-brand);
+}
