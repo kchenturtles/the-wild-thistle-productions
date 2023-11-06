@@ -97,8 +97,7 @@ export async function getLatestEpisodes() {
   const data = await res.json();
   const episodes = data.episodes.items;
    console.log(episodes);
-  first = [{description: episodes[0].description, images: episodes[0].images, release_date: episodes[0].release_date, name: episodes[0].name}, 
-  {description: episodes[1].description, images: episodes[1].images, release_date: episodes[1].release_date, name: episodes[1].name}];
+  first = [episodes[0], episodes[1]];
    console.log(first);
 }
 }
