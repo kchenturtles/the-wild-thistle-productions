@@ -26,7 +26,7 @@ export default function Shows() {
     <main onClick = {() => {getLatestEpisodes()}}>
       <PageTitle> 
         Shows
-        <div onClick = {() => {getLatestEpisodes()}}> HI
+        <div onClick = {() => {showFirst()}}> HI
           {first.map((description, images, release_date, name) => {
              <div>{description}</div>
           })}
