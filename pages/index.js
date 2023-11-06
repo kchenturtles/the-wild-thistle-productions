@@ -18,6 +18,7 @@ const getRefreshedToken = async () => {
 
   // refresh token that has been previously stored
   const url = "https://accounts.spotify.com/api/token";
+  localStorage.setItem('refresh_token', 'AQALo12zrAAwkR25d5UnLkfWgnIkB9tXX3TsxqtJXCKUyB6a1dU2BuDJ1omRkP7cGDpnNl0eZvvqR-etNpBi3X5kdZUNIU6fJ8ANTCi3gojon-lSPufyXVq8Puo1vgXtnEM');
 
   console.log(localStorage.getItem('refresh_token'));
 
