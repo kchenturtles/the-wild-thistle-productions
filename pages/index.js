@@ -105,7 +105,7 @@ export async function getLatestEpisodes() {
 
 export default function Page () {
   return (
-    <main onLoad = {() => getRefreshedToken()}>
+    <main onLoad = {() => getLatestEpisodes()}>
       <header>
       </header>
       <section className='section container'>
