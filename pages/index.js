@@ -9,7 +9,8 @@ import { Instagram } from "react-feather";
 import { Youtube } from "react-feather";
 import { ArrowRight } from "react-feather";
 import fetch from 'node-fetch';
-// import React, { useState, useEffect } from 'react';
+import React from "react";
+
 
 const SpotifyWebApi = require('spotify-web-api-node');
 // const express = require('express');
@@ -99,6 +100,7 @@ export async function getLatestEpisodes() {
    console.log(episodes);
   first = [episodes[0], episodes[1]];
    console.log(first);
+   return first;
 }
 }
 
