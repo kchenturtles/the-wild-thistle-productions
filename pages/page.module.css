@@ -11,3 +11,11 @@
   font-variant-ligatures: additional-ligatures;
   color:palegoldenrod;
 }
+
+.title {
+  text-align: center;
+  margin:auto;
+  font-size: xx-large;
+  font-family: cursive;
+  margin-top:0;
+}
