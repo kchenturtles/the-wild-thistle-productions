@@ -28,7 +28,7 @@ export default function Shows() {
         Shows
         <div onClick = {() => {showFirst()}}> HI
         <ul>
-          {first.map((episode) => {<li>{episode.description}</li>})}
+          {first.map(({episode}) => {<li>{episode.description}</li>})}
           </ul>
         </div>
       </PageTitle>
