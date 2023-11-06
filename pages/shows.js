@@ -32,11 +32,14 @@ const ListShows = () => {}
         Shows
       </PageTitle>
       <div>
-      <div onClick = {() => {showFirst()}}> HI
-        <ul id = "list">
+      <div>Shows</div>
+      <div onClick = {() => {showFirst()}}>Episodes</div>
+        <div>
+          <ul id = "list">
           {first.forEach((episode) => {<li>{episode.description}</li>})}
           </ul>
         </div>
+        <div>Transcripts</div>
       </div>
     </main>);
 }
