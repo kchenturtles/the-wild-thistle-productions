@@ -20,19 +20,13 @@ import type { AppProps } from 'next/app'
 
   export default function App ({ Component, pageProps }: AppProps) {
     return (
-      <div>
-      <html lang="en">
-        <head>
-        </head>
-        <body>
-            <Navbar />
-            <div className={styles.content}>
-            <Component {...pageProps} />
-            </div>
-            <Footer />
-        </body>
-      </html>
-      </div>
+      <main>
+        <Navbar />
+        <div className={styles.content}>
+        <Component {...pageProps} />
+        </div>
+        <Footer />
+      </main>
     );
   }
   
