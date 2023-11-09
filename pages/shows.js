@@ -13,19 +13,28 @@ export const metadata = {
 }; 
 
 export default function Shows ({episodes}) {
-  console.log(episodes[0]["description"]);
+  console.log(episodes[0]["images"][0]["url"]);
   
   return (
     <main>
       <PageTitle> 
         Shows
       </PageTitle>
-      <div>
-      <div>Shows</div>
-      <div></div>
+      <div className = "section container">
         <div>
-          <ul>
-          {episodes.map((episode) => {return (<li>{episode["description"]}</li>);})}
+          <ul className  = {styles.episodes}>
+          {episodes.map((episode) => {return (
+            <div>
+          <li className = {styles.episode}>
+            <Image src = {episode["images"][0]["url"]} width = "300" height = "300" className = {styles.image}/>
+             
+            <div className = {styles.title}>{episode["name"]}</div>
+            <div className = {styles.release_date}><i>Released: </i>{episode["release_date"]}</div>
+            <div className = {styles.description}>{episode["description"]}</div></li>
+            <div className = {styles.audio}> <audio controls src = {episode["audio_preview_url"]}>Listen to An Audio Preview Here:</audio></div> 
+            <div className = {styles.episodeLink}><Link className = {styles.link} href = {episode["external_urls"]["spotify"]}>Listen to the Full Episode</Link> </div>
+            </div>
+          );})}
           </ul>
         </div>
         <div>Transcripts</div>
