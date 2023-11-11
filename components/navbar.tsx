@@ -41,7 +41,7 @@ const Navbar = () => {
     <header className={styles.wrapper}>
       <nav className={`container ${styles.content}`}>
         <div className={styles.navbar}>
-          <Link href="/" className={styles.logo}>
+          <Link href="/" className={styles.logo} onClick = {() => {setOpen(false)}}>
             <Image
               src={logo}
               alt= "Claw Logo"
