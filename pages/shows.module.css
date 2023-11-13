@@ -8,10 +8,16 @@
 }
 
 .episode {
-    max-width:400px;
+    /* max-width:400px; */
     margin:auto;
 }
 
+.releaseDate {
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
+    text-align: center;
+}
 .image {
     max-width:300px;
     margin:auto;
@@ -42,10 +48,18 @@
 }
 
 .link {
-    color:green;
+    color:plum;
     text-decoration: underline;
 }
 
 .description {
     margin:1rem;
+    max-height: 400px;
+    max-width: 400px;
+    font-size: relative;
+}
+
+.transcripts {
+    margin:auto;
+    max-width: fit-content;
 }

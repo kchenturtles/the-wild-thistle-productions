@@ -3,7 +3,11 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next-image-export-optimizer";
-import { Menu, X } from "react-feather";
+import { Menu} from "react-feather";
+import { X } from "react-feather";
+import { Instagram } from "react-feather";
+import { Twitter } from "react-feather";
+import { Youtube } from "react-feather";
 import logo from "../images/logos/spotify.png";
 import styles from "./navbar.module.css";
 
@@ -44,8 +48,8 @@ const Navbar = () => {
           <Link href="/" className={styles.logo} onClick = {() => {setOpen(false)}}>
             <Image
               src={logo}
-              alt= "Claw Logo"
-            />
+              alt= "Logo"
+            /> <div className = {styles.logoTitle}>The Wild Thistle Productions</div>
             <span className="visually-hidden">Home</span>
           </Link>
           <div className = {styles.Links}>
@@ -83,9 +87,13 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-             <Link href = "https://www.buymeacoffee.com/" className = {styles.mobileNavLink} onClick = {() => {setOpen(!isOpen)}}>Buy Me a Coffee</Link>
+             <Link href = "https://www.buymeacoffee.com/thewildthistleproductions" className = {styles.mobileNavLink} onClick = {() => {setOpen(!isOpen)}}>Buy Me a Coffee</Link>
+             <div>
              <div className = {styles.mediaIcons}>
-             <div className = {styles.title}>Media:</div>
+             <Link href = "https:/twitter.com/" target = "_blank"><Twitter className = {styles.mediaIcon}/></Link>
+             <Link href = "https:/instagram.com/" target = "_blank"><Instagram className = {styles.mediaIcon}/></Link>
+             <Link href = "https:/youtube.com/" target = "_blank"><Youtube className = {styles.mediaIcon}/></Link>
+             </div>
             </div>
             <Link href = "/Shows" className = {styles.extraShowLink} onClick = {() => {setOpen(!isOpen)}}>Shows</Link>
             </ul>

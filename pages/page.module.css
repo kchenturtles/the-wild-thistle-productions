@@ -18,4 +18,70 @@
   font-size: xx-large;
   font-family: cursive;
   margin-top:0;
+  margin-bottom:3rem;
+}
+
+.episodes {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  gap:2rem;
+  justify-content: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.episode {
+  /* max-width:400px; */
+  margin:auto;
+}
+
+.releaseDate {
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  text-align: center;
+}
+.image {
+  max-width:300px;
+  margin:auto;
+}
+
+.episodeTitle {
+  text-align: center;
+  font-size: x-large;
+  line-height: 2rem;
+  font-weight:600;
+  font-family: 'Courier New', Courier, monospace
+}
+.audio {
+  margin:auto;
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  max-width: fit-content;
+}
+
+.episodeLink {
+  margin:auto;
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  max-width: fit-content;
+}
+
+.link {
+  color:plum;
+  text-decoration: underline;
+}
+
+.description {
+  margin:1rem;
+  max-height: 400px;
+  max-width: 400px;
+  font-size: relative;
+}
+
+.transcripts {
+  margin:auto;
+  max-width: fit-content;
 }

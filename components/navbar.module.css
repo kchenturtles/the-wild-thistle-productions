@@ -31,6 +31,7 @@
 
 .logo {
   height: 100%;
+  display:flex;
 }
 
 .logo img {
@@ -137,7 +138,12 @@
 .mediaIcons {
   display: flex;
   flex-wrap: wrap;
-  padding:2rem;
+  padding-left:2rem;
+  gap:2rem;
+}
+
+.mediaIcon {
+  height:4rem;
 }
 
 .title {
@@ -145,6 +151,19 @@
   width:100%;
   font-size: larger;
   padding-left:1rem;
+}
+
+.logoTitle {
+  font-size: xx-large;
+  font-family: cursive;
+  color:plum;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  justify-items: center;
+  align-self: center;
+  align-content: center;
+  padding-left:2rem;
 }
 
 .icon {

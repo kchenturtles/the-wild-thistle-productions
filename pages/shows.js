@@ -29,15 +29,16 @@ export default function Shows ({episodes}) {
             <Image src = {episode["images"][0]["url"]} width = "300" height = "300" className = {styles.image}/>
              
             <div className = {styles.title}>{episode["name"]}</div>
-            <div className = {styles.release_date}><i>Released: </i>{episode["release_date"]}</div>
-            <div className = {styles.description}>{episode["description"]}</div></li>
+            <div className = {styles.releaseDate}><i>Released: </i>{episode["release_date"]}</div>
+            <div className = {styles.description}>{episode["description"]}</div>
             <div className = {styles.audio}> <audio controls src = {episode["audio_preview_url"]}>Listen to An Audio Preview Here:</audio></div> 
             <div className = {styles.episodeLink}><Link className = {styles.link} href = {episode["external_urls"]["spotify"]}>Listen to the Full Episode</Link> </div>
+            </li>
             </div>
           );})}
           </ul>
         </div>
-        <div>Transcripts</div>
+        <Link className = {`button ${styles.transcripts}`} href = "https://drive.google.com/drive/folders/1mf7VR4szJyBBYbRWcl9lWLz7h6rhBpBv">View Episode Transcripts</Link>
       </div>
     </main>);
 
