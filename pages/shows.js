@@ -5,8 +5,8 @@ import { ExternalLink } from "react-feather";
 import PageTitle from "../components/page-title";
 import React from 'react';
 import fetch from 'node-fetch';
-// import { getLatestEpisodes } from ".";
-import { InferGetStaticPropsType, GetStaticProps } from 'next'
+import { InferGetStaticPropsType, GetStaticProps } from 'next';
+import Head from 'next/head';
 
 export const metadata = {
   title: "Shows",
@@ -16,6 +16,10 @@ export default function Shows ({episodes}) {
   console.log(episodes[0]["images"][0]["url"]);
   
   return (
+    <div>
+    <Head>
+        <title>Shows | The Wild Thistle Productions</title>
+      </Head>
     <main>
       <PageTitle> 
         Shows
@@ -40,7 +44,8 @@ export default function Shows ({episodes}) {
         </div>
         <Link className = {`button ${styles.transcripts}`} href = "https://drive.google.com/drive/folders/1Az_03z0v7c8jZdKIGyCo5ssf9DPwK1F_">View Episode Transcripts</Link>
       </div>
-    </main>);
+    </main>
+    </div>);
 
  }
 

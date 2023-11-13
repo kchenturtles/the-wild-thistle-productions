@@ -1,4 +1,5 @@
 import styles from "./contact.module.css";
+import Head from 'next/head';
 
 export const metadata = {
   title: "Contact Us",
@@ -6,6 +7,10 @@ export const metadata = {
 
 export default function Contact () {
   return (
+    <div>
+    <Head>
+    <title>Contact | The Wild Thistle Productions</title>
+    </Head>
     <main>
       <div className={`section container ${styles.main}`}>
         <h1>Leave A Comment </h1>
@@ -29,5 +34,6 @@ export default function Contact () {
         </div>
       </div>
     </main>
+    </div>
   );
 }

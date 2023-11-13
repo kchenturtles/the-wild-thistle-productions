@@ -2,7 +2,8 @@ import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import "./global.css";
 import styles from "./layout.module.css";
-import type { AppProps } from 'next/app'
+import type { AppProps } from 'next/app';
+import Head from 'next/head';
 
 export const metadata = {
     title: {
@@ -18,8 +19,12 @@ export const metadata = {
   
 
 
-  export default function App ({ Component, pageProps }: AppProps) {
+  export default function App ({ Component, pageProps}: AppProps) {
     return (
+      <div>
+      <Head>
+        <title>The Wild Thistle Productions</title>
+      </Head>
       <main>
         <Navbar />
         <div className={styles.content}>
@@ -27,6 +32,7 @@ export const metadata = {
         </div>
         <Footer />
       </main>
+      </div>
     );
   }
   
