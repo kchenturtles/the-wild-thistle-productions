@@ -4,17 +4,17 @@ import "./global.css";
 import styles from "./layout.module.css";
 import type { AppProps } from 'next/app'
 
-// export const metadata = {
-//     title: {
-//       template: "The Wild Thistle Productions",
-//       default: "The Wild Thistle Productions",
-//     },
-//     description: "The Wild Thistle Productions Podcast.",
-//     alternates: {
-//       canonical: "/",
-//     },
-//     themeColor: "#c40000",
-//   };
+export const metadata = {
+    title: {
+      template: "The Wild Thistle Productions",
+      default: "The Wild Thistle Productions",
+    },
+    description: "The Wild Thistle Productions Podcast.",
+    alternates: {
+      canonical: "/",
+    }
+    // themeColor: ,
+  };
   
 
 
