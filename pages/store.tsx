@@ -13,6 +13,7 @@ export default function Store() {
     <main>
       <PageTitle>
         Store
+        <div>Shop</div>
       </PageTitle>
     </main>);
 }

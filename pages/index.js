@@ -17,7 +17,7 @@ export default function Page ({episodes}) {
     <div>
     <Head><title>Home | The Wild Thistle Productions</title></Head>
     <main>
-      <header>
+      <header> 
       </header>
       <section className='section container'>
       <Image className={styles.mainImage } src = { mainImage } alt = "Main Photo" />
