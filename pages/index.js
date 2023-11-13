@@ -3,7 +3,7 @@ import Overlay from "../components/overlay";
 import Image from "next-image-export-optimizer";
 import Link from "next/link";
 import mainImage from "../images/Cover.jpeg";
-
+import Head from 'next/head';
 import { Twitter } from "react-feather";
 import { Instagram } from "react-feather";
 import { Youtube } from "react-feather";
