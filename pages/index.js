@@ -14,6 +14,8 @@ import { InferGetStaticPropsType, GetStaticProps } from 'next'
 
 export default function Page ({episodes}) {
   return (
+    <div>
+    <Head><title>Home | The Wild Thistle Productions</title></Head>
     <main>
       <header>
       </header>
@@ -44,6 +46,7 @@ export default function Page ({episodes}) {
       </section>
       <section></section>
     </main>
+    </div>
   );
 }
 
