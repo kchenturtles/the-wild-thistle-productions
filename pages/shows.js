@@ -38,7 +38,7 @@ export default function Shows ({episodes}) {
           );})}
           </ul>
         </div>
-        <Link className = {`button ${styles.transcripts}`} href = "https://drive.google.com/drive/folders/1mf7VR4szJyBBYbRWcl9lWLz7h6rhBpBv">View Episode Transcripts</Link>
+        <Link className = {`button ${styles.transcripts}`} href = "https://drive.google.com/drive/folders/1Az_03z0v7c8jZdKIGyCo5ssf9DPwK1F_">View Episode Transcripts</Link>
       </div>
     </main>);
 
