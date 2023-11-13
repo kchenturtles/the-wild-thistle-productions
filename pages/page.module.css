@@ -48,10 +48,11 @@
 
 .episodeTitle {
   text-align: center;
-  font-size: x-large;
+  font-size: larger;
   line-height: 2rem;
   font-weight:600;
-  font-family: 'Courier New', Courier, monospace
+  font-family: 'Courier New', Courier, monospace;
+  max-width: 300px;
 }
 .audio {
   margin:auto;
