@@ -29,6 +29,7 @@ export default function Page ({episodes}) {
       </section>
       <section className = 'section container'>
         <header className = {styles.title}>Latest Releases</header>
+        <div className = "section container">
         <div>
           <ul className  = {styles.episodes}>
           {episodes.map((episode) => {return (
@@ -36,16 +37,18 @@ export default function Page ({episodes}) {
           <li className = {styles.episode}>
           <Link className = {styles.link} href = {episode["external_urls"]["spotify"]}><Image src = {episode["images"][0]["url"]} width = "300" height = "300" className = {styles.image}/></Link>
              
-            <div className = {styles.episodeTitle}>{episode["name"]}</div>
-            <div className = {styles.episodeLink}> </div>
+           <Link className = {styles.link} href = {episode["external_urls"]["spotify"]}><div className = {styles.episodeTitle}>{episode["name"]}</div></Link>
+            <div className = {styles.releaseDate}><i>Released: </i>{episode["release_date"]}</div>
+            <div className = {styles.description}>{episode["description"]}</div>
+            <div className = {styles.audio}> <audio controls src = {episode["audio_preview_url"]} className = {styles.preview}>Listen to An Audio Preview Here:</audio></div> 
             </li>
             </div>
           );})}
           </ul>
         </div>
+      </div>  
       </section>
-      <section></section>
-    </main>
+      </main>
     </div>
   );
 }

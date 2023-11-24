@@ -67,10 +67,11 @@
 .link {
   padding: 1rem 0;
   transition: opacity 0.15s;
+  padding-left:2rem;
 }
 
 .link:hover {
-  opacity: 80%;
+  text-decoration: underline;
 }
 
 .mobileNavToggle {

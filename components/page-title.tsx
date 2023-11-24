@@ -6,7 +6,7 @@ interface PageTitleProps {
 }
 
 export default function PageTitle ({ children }: PageTitleProps) {
-  return <header className="section">
-    <h1 className={styles.pageTitle}>{children}</h1>
+  return <header className="section container">
+    <div className={styles.pageTitle}>{children}<div className = {styles.spacer}/></div>
   </header>;
 }

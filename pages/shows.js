@@ -1,9 +1,11 @@
+"use client";
+
 import styles from "./shows.module.css";
 import Image from "next-image-export-optimizer";
 import Link from "next/link";
 import { ExternalLink } from "react-feather";
 import PageTitle from "../components/page-title";
-import React from 'react';
+import React from "react";
 import fetch from 'node-fetch';
 import { InferGetStaticPropsType, GetStaticProps } from 'next';
 import Head from 'next/head';
@@ -12,11 +14,40 @@ export const metadata = {
   title: "Shows",
 }; 
 
-export default function Shows ({episodes}) {
+var urls = ['https://api.spotify.com/v1/shows/7HdlfouqPBS3PLf1ivCfdN',
+ 'https://api.spotify.com/v1/shows/7ePxTS7GYVZ0uBAZrueeaD',
+];
+
+function setColor(idn, numEpisodes) {
+  console.log(idn);
+  console.log(numEpisodes);
+  for (let j = 0; j < numEpisodes; j++) {
+    const html = document.getElementById(j);
+    if(j == idn) {
+      console.log(html.innerHTML);
+      html.style.borderColor = "plum";
+      html.style.borderWidth = "5px";
+      html.style.borderStyle = "solid";
+    } else {
+      html.style.borderColor = "gray";
+      html.style.borderWidth = "5px";
+      html.style.borderStyle = "solid";
+    }
+  }
+}
+
+
+export default function Shows ({episodes, Remnants, LightsOut}) {
   console.log(episodes[0]["images"][0]["url"]);
+  var i = -1;
+
+  const num = episodes.length
+
+  const names = [LightsOut, Remnants];
+  const [isHighlighted, setHighlighted] = React.useState({id: 0});
   
   return (
-    <div>
+    <section>
     <Head>
         <title>Shows | The Wild Thistle Productions</title>
       </Head>
@@ -24,30 +55,43 @@ export default function Shows ({episodes}) {
       <PageTitle> 
         Shows
       </PageTitle>
-      <div className = "section container">
-        <div>
+      <div>
           <ul className  = {styles.episodes}>
-          {episodes.map((episode) => {return (
+          {episodes.map((episode) => {i = i + 1; const id = i; return (
             <div>
-          <li className = {styles.episode}>
-            <Image src = {episode["images"][0]["url"]} width = "300" height = "300" className = {styles.image}/>
-             
-            <div className = {styles.title}>{episode["name"]}</div>
-            <div className = {styles.releaseDate}><i>Released: </i>{episode["release_date"]}</div>
-            <div className = {styles.description}>{episode["description"]}</div>
-            <div className = {styles.audio}> <audio controls src = {episode["audio_preview_url"]}>Listen to An Audio Preview Here:</audio></div> 
-            <div className = {styles.episodeLink}><Link className = {styles.link} href = {episode["external_urls"]["spotify"]}>Listen to the Full Episode</Link> </div>
+          <li onClick = {() => {setHighlighted({id}); setColor(id, num); console.log(names[isHighlighted.id])}}>
+            <div>
+              {i}
+            <Image id = {i} src = {episode["images"][0]["url"]} width = "300" height = "300" className = {styles.topImage}/>
+            </div>
             </li>
             </div>
           );})}
           </ul>
         </div>
-        <Link className = {`button ${styles.transcripts}`} href = "https://drive.google.com/drive/folders/1Az_03z0v7c8jZdKIGyCo5ssf9DPwK1F_">View Episode Transcripts</Link>
-      </div>
+        <section className = "section container">     
+            <div className = {styles.spacer}></div> 
+            <div className = "cols1_1">
+            <Image src = {names[isHighlighted.id].images[0]["url"]} width = "500" height = "500" className = {styles.image}/>
+            <div>
+              <div className = {styles.showTitle}>{names[isHighlighted.id].name}</div>
+              <div className = {styles.releaseDate}><i>Episodes: {names[isHighlighted.id].total_episodes}</i></div>
+              <div className = {styles.description}>{names[isHighlighted.id].description.split(".")[0] + "." + names[isHighlighted.id].description.split(".")[1] + "."}</div>
+              <div className = {styles.title}>Latest Episodes:</div>
+              <div>{names[isHighlighted.id].episodes.items.map((episode) => {
+                return (<div>
+                <Link href = {episode["external_urls"]["spotify"]}>{episode["name"]}</Link>
+                </div>);
+              })}</div>
+              </div>
+            </div>    
+        </section>
     </main>
-    </div>);
+    </section>);
 
  }
+
+ //<Link className = {styles.link} href = {episode["external_urls"]["spotify"]}>
 
  export async function getStaticProps() {
 
@@ -85,14 +129,30 @@ export default function Shows ({episodes}) {
   });
 
   const data = await res.json();
-  console.log("SDDDD");
   const episodes = data.episodes.items;
-  console.log("SWITJ");
-  const epi = episodes;
-  console.log(episodes);
+
+  const rem = await fetch('https://api.spotify.com/v1/shows/7HdlfouqPBS3PLf1ivCfdN', {
+
+  headers: {
+    Authorization: 'Bearer ' + accessToken
+  }
+ });
+
+ const rdata = await rem.json();
+ const Remnants = rdata;
+
+const lights = await fetch('https://api.spotify.com/v1/shows/7ePxTS7GYVZ0uBAZrueeaD', {
+
+headers: {
+  Authorization: 'Bearer ' + accessToken
+}
+});
+
+const ldata = await lights.json();
+const LightsOut = ldata;
 
   return {
-      props: {episodes},
+      props: {episodes, Remnants, LightsOut},
   };
 }
 }

@@ -1,5 +1,11 @@
 .pageTitle {
-  text-align: center;
+  text-align: left;
   font-size: 4rem;
   line-height: 4rem;
+}
+
+.spacer {
+  min-height: 0.125rem;
+  background-color:green;
+  margin-bottom:5rem;
 }

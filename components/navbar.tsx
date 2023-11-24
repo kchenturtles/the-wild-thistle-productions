@@ -54,7 +54,8 @@ const Navbar = () => {
           </Link>
           <div className = {styles.Links}>
           <ul className={styles.navbarLinks}>
-            <Link href = "/shows" onClick = {() => {setOpen(false)}}> Shows </Link>
+            <Link className = {styles.link} href = "/shows" onClick = {() => {setOpen(false)}}> Shows </Link>
+            <Link className = {styles.link} onClick = {() => {setOpen(false)}} href = "https://drive.google.com/drive/folders/1Az_03z0v7c8jZdKIGyCo5ssf9DPwK1F_">Transcripts</Link>
           </ul>
           <button className={styles.mobileNavToggle} onClick={() => setOpen(!isOpen)}>
             {isOpen ? (
@@ -91,8 +92,8 @@ const Navbar = () => {
              <div>
              <div className = {styles.mediaIcons}>
              <Link href = "https:/twitter.com/" target = "_blank"><Twitter className = {styles.mediaIcon}/></Link>
-             <Link href = "https:/instagram.com/" target = "_blank"><Instagram className = {styles.mediaIcon}/></Link>
-             <Link href = "https:/youtube.com/" target = "_blank"><Youtube className = {styles.mediaIcon}/></Link>
+             <Link href = "https://www.instagram.com/the_wild_thistle_productions/" target = "_blank"><Instagram className = {styles.mediaIcon}/></Link>
+             <Link href = "https://www.youtube.com/channel/UCh936OgeD_W7DS4bcQv1B0A" target = "_blank"><Youtube className = {styles.mediaIcon}/></Link>
              </div>
             </div>
             <Link href = "/Shows" className = {styles.extraShowLink} onClick = {() => {setOpen(!isOpen)}}>Shows</Link>
