@@ -83,6 +83,8 @@ export default function Shows ({episodes, Remnants, LightsOut}) {
                 <Link href = {episode["external_urls"]["spotify"]}><div className = {styles.link}>{episode["name"]}</div></Link>
                 </div>);
               })}</div>
+              
+              <div>Produced by {names[isHighlighted.id].publisher}</div>
               </div>
             </div>    
         </section>
