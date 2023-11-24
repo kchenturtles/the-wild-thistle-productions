@@ -65,7 +65,6 @@ export default function Shows ({episodes, Remnants, LightsOut}) {
             <div>
           <li onClick = {() => {setHighlighted({id}); setColor(id, num); console.log(names[isHighlighted.id])}}>
             <div>
-              {i}
             <Image id = {i} src = {episode["images"][0]["url"]} width = "300" height = "300" className = {styles.topImage}/>
             </div>
             </li>
