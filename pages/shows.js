@@ -9,6 +9,10 @@ import React from "react";
 import fetch from 'node-fetch';
 import { InferGetStaticPropsType, GetStaticProps } from 'next';
 import Head from 'next/head';
+import { X } from "react-feather";
+import { Instagram } from "react-feather";
+import { Twitter } from "react-feather";
+import { Youtube } from "react-feather";
 
 export const metadata = {
   title: "Shows",
@@ -83,7 +87,15 @@ export default function Shows ({episodes, Remnants, LightsOut}) {
                 <Link href = {episode["external_urls"]["spotify"]}><div className = {styles.link}>{episode["name"]}</div></Link>
                 </div>);
               })}</div>
-              
+              <div className = {styles.media}>
+              <div className = {styles.title}>Share and Support!</div>
+              <div className = {styles.icons}>
+              <Link href = "https://www.instagram.com/the_wild_thistle_productions/" target = "_blank"><Instagram className = {styles.mediaIcon}/></Link>
+             <Link href = "https://www.youtube.com/channel/UCh936OgeD_W7DS4bcQv1B0A" target = "_blank"><Youtube className = {styles.mediaIcon}/></Link>
+             <Link href = "https://www.buymeacoffee.com/thewildthistleproductions" className = {styles.link} onClick = {() => {setOpen(!isOpen)}}>Buy Me a Coffee</Link>
+              </div>
+              </div>
+             
               <div>Produced by {names[isHighlighted.id].publisher}</div>
               </div>
             </div>    

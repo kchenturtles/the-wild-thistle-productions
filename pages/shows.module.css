@@ -68,6 +68,24 @@
     margin-bottom:5rem;
 }
 
+.media {
+    border-top-width: 2px;
+    border-left-width:0px;
+    border-right-width:0px;
+    border-bottom-width:2px;
+    border-style:solid;
+    border-color:plum;
+    display:flex;
+    gap:2rem;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+}
+
+.mediaIcon {
+    height:2rem;
+}
+
 .audio {
     margin:auto;
     justify-content: center;
