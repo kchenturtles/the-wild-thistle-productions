@@ -88,7 +88,7 @@ export default function Shows ({episodes, Remnants, LightsOut}) {
                 </div>);
               })}</div>
               <div className = {styles.media}>
-              <div className = {styles.title}>Share and Support!</div>
+              <div className = {styles.mediaTitle}>Share and Support!</div>
               <div className = {styles.icons}>
               <Link href = "https://www.instagram.com/the_wild_thistle_productions/" target = "_blank"><Instagram className = {styles.mediaIcon}/></Link>
              <Link href = "https://www.youtube.com/channel/UCh936OgeD_W7DS4bcQv1B0A" target = "_blank"><Youtube className = {styles.mediaIcon}/></Link>

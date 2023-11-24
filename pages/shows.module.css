@@ -74,7 +74,18 @@
     border-right-width:0px;
     border-bottom-width:2px;
     border-style:solid;
-    border-color:plum;
+    border-color:white;
+    padding:2rem;
+}
+
+.mediaTitle {
+    padding-bottom:2rem;
+    text-align: center;
+    font-size: x-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.icons {
     display:flex;
     gap:2rem;
     justify-content: center;
