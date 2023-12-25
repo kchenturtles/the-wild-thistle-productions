@@ -135,7 +135,7 @@ export default function Shows ({episodes, Remnants, LightsOut}) {
 
   let accessToken = access_token;
   const res = await fetch('https://api.spotify.com/v1/shows/4MqPuRVONKkOiu2SOAYgAf?si=a90b318f18ff4ace', {
-
+  next: { revalidate: 10 },
     headers: {
       Authorization: 'Bearer ' + accessToken
     }
@@ -145,7 +145,7 @@ export default function Shows ({episodes, Remnants, LightsOut}) {
   const episodes = data.episodes.items;
 
   const rem = await fetch('https://api.spotify.com/v1/shows/7HdlfouqPBS3PLf1ivCfdN', {
-
+    next: { revalidate: 10 },
   headers: {
     Authorization: 'Bearer ' + accessToken
   }
@@ -155,7 +155,7 @@ export default function Shows ({episodes, Remnants, LightsOut}) {
  const Remnants = rdata;
 
 const lights = await fetch('https://api.spotify.com/v1/shows/7ePxTS7GYVZ0uBAZrueeaD',{
-
+  next: { revalidate: 10 },
 headers: {
   Authorization: 'Bearer ' + accessToken
 }
