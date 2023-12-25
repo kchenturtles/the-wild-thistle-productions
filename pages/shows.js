@@ -165,7 +165,7 @@ const ldata = await lights.json();
 const LightsOut = ldata;
 
   return {
-      props: {episodes, Remnants, LightsOut},
+      props: {episodes, Remnants, LightsOut, revalidate: 60},
   };
 }
 }
