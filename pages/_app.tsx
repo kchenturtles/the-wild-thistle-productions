@@ -14,8 +14,10 @@ export const metadata = {
     description: "The Wild Thistle Productions Podcast.",
     alternates: {
       canonical: "/",
-    }
-    // themeColor: ,
+    },
+    icons: {
+      icon: '/favicon.ico', // /public path
+    },
   };
   
 

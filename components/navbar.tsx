@@ -8,7 +8,7 @@ import { X } from "react-feather";
 import { Instagram } from "react-feather";
 import { Twitter } from "react-feather";
 import { Youtube } from "react-feather";
-import logo from "../images/logos/spotify.png";
+import logo from "../images/logos/thistle.png";
 import styles from "./navbar.module.css";
 
 const Navbar = () => {
