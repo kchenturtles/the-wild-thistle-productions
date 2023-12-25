@@ -79,7 +79,7 @@ export default function Shows ({episodes, Remnants, LightsOut}) {
             <div>
               <div className = {styles.showTitle}>{names[isHighlighted.id].name}</div>
               <div className = {styles.releaseDate}><i>Episodes: {names[isHighlighted.id].total_episodes}</i></div>
-              <div className = {styles.description}>{names[isHighlighted.id].description.split(".")[0] + "." + names[isHighlighted.id].description.split(".")[1] + "."}</div>
+              <div className = {styles.description}>{names[isHighlighted.id].description.split(".")[0] + "."}</div>
               <div className = {styles.title}>Releases:</div>
               <div>{names[isHighlighted.id].episodes.items.map((episode) => {
                 return (<div className = {styles.link} >
