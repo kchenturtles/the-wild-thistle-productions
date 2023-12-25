@@ -4,6 +4,7 @@ import "./global.css";
 import styles from "./layout.module.css";
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
     title: {
@@ -32,6 +33,7 @@ export const metadata = {
         </div>
         <Footer />
       </main>
+      <Analytics />
       </div>
     );
   }

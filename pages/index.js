@@ -96,7 +96,7 @@ export async function getStaticProps() {
   console.log(episodes);
 
   return {
-      props: {episodes, revalidate: 60},
+      props: {episodes, revalidate: 10},
   };
 }
 }
