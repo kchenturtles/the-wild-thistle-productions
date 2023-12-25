@@ -168,6 +168,7 @@ console.log(Remnants);
 
   return {
       props: {episodes, Remnants, LightsOut},
+      revalidate: 10,
   };
 }
 }

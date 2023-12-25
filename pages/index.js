@@ -100,6 +100,7 @@ export async function getStaticProps() {
 
   return {
       props: {episodes},
+      revalidate: 10,
   }
 }
 }
