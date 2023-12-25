@@ -164,6 +164,8 @@ headers: {
 const ldata = await lights.json();
 const LightsOut = ldata;
 
+console.log(Remnants);
+
   return {
       props: {episodes, Remnants, LightsOut, revalidate: 10},
   };
