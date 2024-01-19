@@ -12,8 +12,7 @@ export default function Store() {
   return (
     <main>
       <PageTitle>
-        Store
-        <div>Shop</div>
+        Shop
       </PageTitle>
     </main>);
 }
