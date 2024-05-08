@@ -5,15 +5,51 @@
     gap:2rem;
     justify-content: center;
     font-family: 'Courier New', Courier, monospace;
+    width:100%;
+}
+
+.episodeName {
+    margin-left:0.5rem;
 }
 
 .episode {
-    /* max-width:400px; */
-    margin:auto;
-    margin-bottom:10rem;
-    border-color: gray;
-    border-style: solid;
-    border-width: 1px;
+    display:flex;
+    align-items: center;
+    color:plum;
+}
+
+.spaceApart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:plum;
+}
+
+.spaceApart:hover {
+    opacity: 0.75;
+}
+
+.audio {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    color:plum;
+}
+
+.mediaIcon:hover{
+    color:plum;
+}
+
+.latestEpisodeName {
+    color:plum;
+    margin-top:1rem;
+}
+
+.episodeUnderline {
+    height:1px;
+    margin-left:2rem;
+    margin-bottom: 1rem;
+    background-color: plum;
 }
 
 .highlight {
@@ -41,46 +77,43 @@
 
 .image {
     max-width:500px;
-    margin:auto;
+    filter: invert(10%);
 }
 
 .showTitle {
-    text-align: center;
+    text-align: left;
     font-size: xx-large;
-    font-family: cursive;
-    color:plum;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    color:white;
+    
+}
+
+.showUnderline {
     margin-bottom:2rem;
+    margin-top: 1rem;
 }
 
 .title {
     text-align: left;
     font-size: x-large;
     line-height: 2rem;
-    font-weight:300;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    font-weight:600;
+    font-family:'Courier New', Courier, monospace;
+    margin-top: 1rem;
 }
 
 .spacer {
-    border-bottom:2px;
-    border-style:dotted;
+    border-bottom:0;
+    border-style:none;
     border-color:green;
-    margin-top:10rem;
-    margin-bottom:5rem;
-}
-
-.media {
-    border-top-width: 2px;
-    border-left-width:0px;
-    border-right-width:0px;
-    border-bottom-width:2px;
-    border-style:solid;
-    border-color:white;
-    padding:2rem;
+    margin:auto;
+    margin-top:7rem;
+    margin-bottom:7rem;
 }
 
 .mediaTitle {
-    padding-bottom:2rem;
-    text-align: center;
+    padding-bottom:1rem;
     font-size: x-large;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -88,7 +121,6 @@
 .icons {
     display:flex;
     gap:2rem;
-    justify-content: center;
     align-items: center;
     font-size: larger;
 }
@@ -97,12 +129,9 @@
     height:2rem;
 }
 
-.audio {
-    margin:auto;
-    justify-content: center;
-    justify-items: center;
-    justify-self: center;
-    max-width: fit-content;
+.closeFit {
+    margin-top: 4rem;
+    margin-bottom: 1rem;
 }
 
 .episodeLink {
@@ -114,12 +143,12 @@
 }
 
 .link {
-    color:plum;
-    font-size: larger;
+    color: plum;
+    font-size: large;
     text-align: left;
     padding:0.5rem;
-    font-family: 'Courier New', Courier, monospace;
     display: flex;
+    text-decoration: underline;
 }
 
 .preview {
@@ -127,14 +156,19 @@
   }
 
 .link:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    opacity: 0.75;
+}
+
+.space {
+    margin-bottom:3rem;
+    margin-top: 3rem;
 }
 
 .description {
     margin:1rem;
-    font-size: larger;
+    font-size: large;
     margin:auto;
-    font-family: 'Courier New', Courier, monospace;
     margin-bottom:2rem;
 }
 
