@@ -6,6 +6,7 @@
 
 .spacer {
   min-height: 0.125rem;
-  background-color:green;
+  background-color:white;
   margin-bottom:5rem;
+  margin-top: 1rem;
 }
