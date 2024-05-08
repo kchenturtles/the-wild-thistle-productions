@@ -41,11 +41,9 @@ function setColor(idn, numEpisodes) {
 }
 
 
-export default function Shows ({episodes, Remnants, LightsOut}) {
-  console.log(episodes[0]["images"][0]["url"]);
+export default function Shows ({Remnants, LightsOut}) {
   var i = -1;
-
-  const num = episodes.length
+  const num = 2;
 
   const names = [LightsOut, Remnants];
   const [isHighlighted, setHighlighted] = React.useState({id: 0});
@@ -61,11 +59,11 @@ export default function Shows ({episodes, Remnants, LightsOut}) {
       </PageTitle>
       <div>
           <ul className  = {styles.episodes}>
-          {episodes.map((episode) => {i = i + 1; const id = i; return (
+          {names.map((name) => {i = i + 1; const id = i; return (
             <div>
           <li onClick = {() => {setHighlighted({id}); setColor(id, num); console.log(names[isHighlighted.id])}}>
             <div>
-            <Image id = {i} src = {episode["images"][0]["url"]} width = "300" height = "300" className = {styles.topImage}/>
+            <Image id = {i} src = {name["images"][0]["url"]} width = "300" height = "300" className = {styles.topImage}/>
             </div>
             </li>
             </div>
@@ -134,15 +132,6 @@ export default function Shows ({episodes, Remnants, LightsOut}) {
     console.log(`New access token: ${access_token}`);
 
   let accessToken = access_token;
-  const res = await fetch('https://api.spotify.com/v1/shows/4MqPuRVONKkOiu2SOAYgAf?si=a90b318f18ff4ace', {
-  next: { revalidate: 10 },
-    headers: {
-      Authorization: 'Bearer ' + accessToken
-    }
-  });
-
-  const data = await res.json();
-  const episodes = data.episodes.items;
 
   const rem = await fetch('https://api.spotify.com/v1/shows/7HdlfouqPBS3PLf1ivCfdN', {
     next: { revalidate: 10 },
@@ -167,7 +156,7 @@ const LightsOut = ldata;
 console.log(Remnants);
 
   return {
-      props: {episodes, Remnants, LightsOut},
+      props: {Remnants, LightsOut},
       revalidate: 10,
   };
 }
