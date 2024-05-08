@@ -147,6 +147,10 @@
   height:4rem;
 }
 
+.mediaIcon:hover{
+  color:plum
+}
+
 .title {
   text-align: left;
   width:100%;
@@ -170,18 +174,4 @@
 .icon {
   width:100px;
   height:100px;
-}
-
-.donateButton {
-  background-color: var(--color-brand);
-  border: 2px solid var(--color-brand);
-  border-radius: 1em;
-  color: white;
-  padding: 0.5rem 1rem;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.donateButton:hover {
-  background-color: transparent;
-  color: var(--color-brand);
 }

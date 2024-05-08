@@ -24,20 +24,51 @@
 .episode {
   margin:auto;
   display: inline-block;
-  width: 19.5%;
+  width: 19%;
   float: none;
   height: 100%;
   margin: 0 0.5%;
-  display: inline-block;
   zoom: 1;
 }
 
 .scroll {
   white-space: nowrap;
-  position: relative;
   overflow-x: scroll;
   overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
+  margin-left: -0.25em;
+}
+
+.scroll::-webkit-scrollbar { 
+  display: none; 
+}
+
+.leftArrow {
+  height:2.5rem;
+  width:2.5em;
+  color:green;
+  margin-left: -3rem;
+}
+
+.rightArrow {
+  height:2.5rem;
+  width:2.5em;
+  color:green;
+  margin-right: -3rem;
+}
+
+.leftArrow:hover {
+  color:plum;
+  cursor:pointer;
+}
+
+.rightArrow:hover {
+  color:plum;
+  cursor:pointer;
+}
+
+.episodes {
+  display: flex;
+  align-items: center;
 }
 
 .image {
@@ -49,6 +80,10 @@
   filter:invert(10%);
 }
 
+.image:hover{
+  cursor:pointer;
+}
+
 .episodeTitle {
   font-size: xx-large;
   font-weight:600;
@@ -56,12 +91,12 @@
   text-transform: uppercase;
   text-align: left;
 }
+
 .audio {
-  margin:auto;
-  justify-content: center;
-  justify-items: center;
-  justify-self: center;
+  display: inline-flex;
+  align-content:center;
   max-width: fit-content;
+  margin-bottom: 2rem;
 }
 
 .preview {
@@ -88,31 +123,11 @@
   margin-bottom: 1rem;
 }
 
-.link {
-  color:plum;
-  text-decoration: underline;
-}
-
 .description {
-  margin:1rem;
-  max-height: 400px;
-  max-width: 400px;
-  font-size: relative;
+  font-size: large;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
-
-.transcripts {
-  margin:auto;
-  max-width: fit-content;
-}
-/* 
-.episodes {
-  display: flex;
-  flex-wrap: wrap;
-  list-style-type: none;
-  gap:2rem;
-  justify-content: center;
-  font-family: 'Courier New', Courier, monospace;
-} */
 
 .releaseDate {
   text-align: left;
@@ -124,14 +139,6 @@
   margin-right:4rem;
   min-height: 3px;
   margin-bottom: 2rem;
-}
-
-.audio {
-  margin:auto;
-  justify-content: center;
-  justify-items: center;
-  justify-self: center;
-  max-width: fit-content;
 }
 
 .episodeLink {
@@ -148,14 +155,7 @@
 }
 
 .link:hover{
-  text-decoration: underline;
-}
-
-.description {
-  margin:1rem;
-  max-height: 400px;
-  max-width: 400px;
-  font-size: relative;
+  color:plum;
 }
 
 .transcripts {

@@ -145,12 +145,22 @@ h1 {
 }
 
 .button {
-  display: inline-block;
+  display: flex;
   border: 1px;
   border-radius: 0.75em;
   background-color: var(--color-brand);
   color: white;
   padding: 0.5rem 1rem;
+  max-width: fit-content;
+  align-items: center;
+  gap:0.5rem;
+  text-transform: uppercase;
+  font-family: 'Courier New', Courier, monospace;
+  border: 2px solid var(--color-brand);
+  border-radius: 1em;
+  color: white;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .border-button {
@@ -161,6 +171,16 @@ h1 {
   padding: 0.5rem 1rem;
 }
 
+audio {
+  background-color: black;
+  color: green;
+}
+
+audio::-webkit-media-controls-enclosure {
+  border-radius: 5px;
+  background-color: white;
+  filter:invert(100%);
+}
 .button-white {
   display: inline-block;
   border: 2px;
@@ -173,10 +193,6 @@ h1 {
 }
 
 .button-white:hover {
-  opacity: 80%;
-}
-
-.button:hover {
   opacity: 80%;
 }
 
@@ -204,4 +220,9 @@ input:focus,
 textarea:focus {
   outline: none;
   border: 2px solid var(--color-brand);
+}
+
+.button:hover {
+  background-color: transparent;
+  color: var(--color-brand);
 }
