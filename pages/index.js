@@ -2,7 +2,7 @@ import styles from "./page.module.css";
 import Overlay from "../components/overlay";
 import Image from "next-image-export-optimizer";
 import Link from "next/link";
-import mainImage from "../images/Cover.jpeg";
+import mainImage from "../images/Cover.png";
 import Head from 'next/head';
 import { Twitter } from "react-feather";
 import { Instagram } from "react-feather";
@@ -13,7 +13,29 @@ import React from "react";
 import { InferGetStaticPropsType, GetStaticProps } from 'next'
 import { TypeAnimation } from 'react-type-animation';
 
+function setColor(idn, numEpisodes) {
+  console.log(idn);
+  console.log(numEpisodes);
+  for (let j = 0; j < numEpisodes; j++) {
+    const html = document.getElementById(j);
+    if(j == idn) {
+      console.log(html.innerHTML);
+      html.style.borderColor = "plum";
+      html.style.borderWidth = "1px";
+      html.style.borderStyle = "solid";
+    } else {
+      html.style.borderColor = "black";
+      html.style.borderWidth = "1px";
+      html.style.borderStyle = "solid";
+    }
+  }
+}
+
 export default function Page ({episodes}) {
+  const [isHighlighted, setHighlighted] = React.useState({id: 0});
+  const num = episodes.length
+  var i = -1;
+
   return (
     <div>
     <Head><title>Home | The Wild Thistle Productions</title></Head>
@@ -33,21 +55,32 @@ export default function Page ({episodes}) {
       <section className = 'section container'>
         <header className = {styles.title}>Latest Releases</header>
         <div className = "section container">
-        <div>
-          <ul className  = {styles.episodes}>
-          {episodes.map((episode) => {return (
+        <div className = 'cols1_1'>
+          <div className = {styles.imageWrapper}>
+            <Image src = {episodes[isHighlighted.id]["images"][0]["url"]} width = "500" height = "500" className = {styles.highlightedImage}/>
+            </div>
             <div>
-          <li className = {styles.episode}>
-          <Link className = {styles.link} href = {episode["external_urls"]["spotify"]}><Image src = {episode["images"][0]["url"]} width = "300" height = "300" className = {styles.image}/></Link>
-             
-           <Link className = {styles.link} href = {episode["external_urls"]["spotify"]}><div className = {styles.episodeTitle}>{episode["name"]}</div></Link>
-            <div className = {styles.releaseDate}><i>Released: </i>{episode["release_date"]}</div>
-            <div className = {styles.description}>{episode["description"].split(".")[0] + "." + episode["description"].split(".")[1] + "."}</div>
-            <div className = {styles.audio}> <audio controls src = {episode["audio_preview_url"]} className = {styles.preview}>Listen to An Audio Preview Here:</audio></div> 
-            </li>
+            <div className = {styles.releaseDate}>{episodes[isHighlighted.id]["release_date"]}</div>
+              <hr color="green" className = {styles.separator}></hr>
+            <div className = {styles.episodeTitle}>{episodes[isHighlighted.id]["name"]}</div>
+            <div className = {styles.description}>{episodes[isHighlighted.id]["description"].split("***")[0]}</div>
+            </div>
+        </div>
+        <div className = {styles.scroll}>
+              {/* /* <Link className = {styles.link} href = {episode["external_urls"]["spotify"]}><div className = {styles.episodeTitle}>{episode["name"]}</div></Link> */}
+            {/*  */}
+            {/*  */}
+            {/* <div className = {styles.audio}> <audio controls src = {episode["audio_preview_url"]} className = {styles.preview}>Listen to An Audio Preview Here:</audio></div>  */}
+          {episodes.map((episode) => {i = i + 1; const id = i; return (
+            <div className = {styles.episode} onClick = {() => {setHighlighted({id}); setColor(id, num);}}>
+            <Image id = {i} src = {episode["images"][0]["url"]} width = "300" height = "300" className = {styles.image}/>
+            {/* <Link className = {styles.link} href = {episode["external_urls"]["spotify"]}><div className = {styles.episodeTitle}>{episode["name"]}</div></Link> */}
+            {/* <div className = {styles.releaseDate}><i>Released: </i>{episode["release_date"]}</div> */}
+            {/* <div className = {styles.description}>{episode["description"].split(".")[0] + "." + episode["description"].split(".")[1] + "."}</div> */}
+            {/* <div className = {styles.audio}> <audio controls src = {episode["audio_preview_url"]} className = {styles.preview}>Listen to An Audio Preview Here:</audio></div>  */}
+            {/* <Link className = {styles.link} href = {episode["external_urls"]["spotify"]}></Link> */}
             </div>
           );})}
-          </ul>
         </div>
       </div>  
       </section>

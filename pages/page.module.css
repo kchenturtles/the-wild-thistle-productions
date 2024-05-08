@@ -1,6 +1,6 @@
 .mainImage {
   margin: auto;
-  max-width: 300px;
+  max-width: 150px;
   height:auto;
 }
 
@@ -21,38 +21,40 @@
   margin-bottom:3rem;
 }
 
-.episodes {
-  display: flex;
-  flex-wrap: wrap;
-  list-style-type: none;
-  gap:2rem;
-  justify-content: center;
-  font-family: 'Courier New', Courier, monospace;
-}
-
 .episode {
-  /* max-width:400px; */
   margin:auto;
+  display: inline-block;
+  width: 19.5%;
+  float: none;
+  height: 100%;
+  margin: 0 0.5%;
+  display: inline-block;
+  zoom: 1;
 }
 
-.releaseDate {
-  justify-content: center;
-  justify-items: center;
-  justify-self: center;
-  text-align: center;
+.scroll {
+  white-space: nowrap;
+  position: relative;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 }
+
 .image {
-  max-width:300px;
+  max-width:auto;
   margin:auto;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  filter:invert(10%);
 }
 
 .episodeTitle {
-  text-align: center;
-  font-size: larger;
-  line-height: 2rem;
+  font-size: xx-large;
   font-weight:600;
   font-family: 'Courier New', Courier, monospace;
-  max-width: 300px;
+  text-transform: uppercase;
+  text-align: left;
 }
 .audio {
   margin:auto;
@@ -74,6 +76,18 @@
   max-width: fit-content;
 }
 
+.highlightedImage {
+  max-width:500px;
+  margin-left: 0;
+  padding-left: 0;
+  height:auto;
+  filter:invert(10%);
+}
+
+.imageWrapper {
+  margin-bottom: 1rem;
+}
+
 .link {
   color:plum;
   text-decoration: underline;
@@ -90,7 +104,7 @@
   margin:auto;
   max-width: fit-content;
 }
-
+/* 
 .episodes {
   display: flex;
   flex-wrap: wrap;
@@ -98,22 +112,18 @@
   gap:2rem;
   justify-content: center;
   font-family: 'Courier New', Courier, monospace;
-}
+} */
 
 .releaseDate {
-  justify-content: center;
-  justify-items: center;
-  justify-self: center;
-  text-align: center;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  font-size: larger;
 }
 
-.episodeTitle {
-  text-align: center;
-  font-size: x-large;
-  max-width:400px;
-  line-height: 2rem;
-  font-weight:600;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+.separator {
+  margin-right:4rem;
+  min-height: 3px;
+  margin-bottom: 2rem;
 }
 
 .audio {
