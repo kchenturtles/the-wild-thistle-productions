@@ -70,7 +70,7 @@
 .topImage {
     max-width:300px;
     margin:auto;
-    border-width: 5px;
+    border-width: 2px;
     border-color:gray;;
     border-style:solid;
 }
@@ -115,7 +115,8 @@
 .mediaTitle {
     padding-bottom:1rem;
     font-size: x-large;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
 }
 
 .icons {

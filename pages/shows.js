@@ -9,7 +9,6 @@ import React from "react";
 import fetch from 'node-fetch';
 import { InferGetStaticPropsType, GetStaticProps } from 'next';
 import Head from 'next/head';
-import { X } from "react-feather";
 import { Instagram } from "react-feather";
 import { Twitter } from "react-feather";
 import { Youtube } from "react-feather";
@@ -52,11 +51,11 @@ function setColor(idn, numEpisodes) {
     if(j == idn) {
       console.log(html.innerHTML);
       html.style.borderColor = "plum";
-      html.style.borderWidth = "5px";
+      html.style.borderWidth = "2px";
       html.style.borderStyle = "solid";
     } else {
       html.style.borderColor = "gray";
-      html.style.borderWidth = "5px";
+      html.style.borderWidth = "2px";
       html.style.borderStyle = "solid";
     }
   }
@@ -107,6 +106,12 @@ export default function Shows ({Remnants, LightsOut}) {
               <div className = {styles.description}>{names[isHighlighted.id].description.split(".")[0] + "."}</div>
               <Link href = {transcripts[isHighlighted.id]} className={styles.link}>All Episode Transcripts</Link>
               <hr className = {styles.space} color="green"/>
+              <div>{actors[isHighlighted.id].size > 0 ? "Cast" : ""}</div>
+              <div>
+                <ul>
+                {actors[isHighlighted.id].forEach((key, value) => {return(<li>{key}: {value}</li>);})}
+                </ul>
+              </div>
               <div>Produced by {names[isHighlighted.id].publisher}</div>
               <hr className = {styles.closeFit} color="green"/>
               <div className = {styles.media}>
@@ -141,8 +146,6 @@ export default function Shows ({Remnants, LightsOut}) {
     </section>);
 
  }
-
- //<Link className = {styles.link} href = {episode["external_urls"]["spotify"]}>
 
  export async function getStaticProps() {
 
