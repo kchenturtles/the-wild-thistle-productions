@@ -122,7 +122,7 @@ export default function Shows ({Remnants, LightsOut}) {
               </div>
               </div>
               <div>
-              <Image src = {names[isHighlighted.id].images[0]["url"]} width = "500" height = "500" className = {styles.image}/>
+              <Link href = {names[isHighlighted.id]["external_urls"]["spotify"]}><Image src = {names[isHighlighted.id].images[0]["url"]} width = "500" height = "500" className = {styles.image}/></Link>
               <div className = {styles.title}>Latest Episode:</div>
               <div className = {styles.latestEpisodeName}>{names[isHighlighted.id].episodes.items[0]["name"]}</div>
               <div className={styles.audio}> Preview: <audio controls src={names[isHighlighted.id].episodes.items[0]["audio_preview_url"]} className={styles.preview}>Listen to An Audio Preview Here:</audio></div>
