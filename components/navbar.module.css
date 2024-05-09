@@ -72,6 +72,7 @@
 
 .link:hover {
   text-decoration: underline;
+  color:plum;
 }
 
 .mobileNavToggle {
@@ -81,6 +82,10 @@
   padding: 0;
   font-size: inherit;
   color: inherit;
+}
+
+.mobileNavToggle:hover{
+  cursor:pointer;
 }
 
 @media (min-width: 768px) {
@@ -134,6 +139,11 @@
   margin:2.5rem;
   margin-top:1rem;
   width:fit-content;
+}
+
+.mobileNavLink:hover {
+  color:plum;
+  text-decoration: underline;
 }
 
 .mediaIcons {
