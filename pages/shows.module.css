@@ -112,6 +112,14 @@
     margin-bottom:7rem;
 }
 
+.castList {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dotted white;
+    line-height: 1.25rem;
+    margin-top:0.75rem;
+}
+
 .mediaTitle {
     padding-bottom:1rem;
     font-size: x-large;
@@ -161,9 +169,27 @@
     opacity: 0.75;
 }
 
-.space {
-    margin-bottom:3rem;
+.spaceTop {
+    margin-bottom:2rem;
     margin-top: 3rem;
+}
+
+.producer {
+    margin-top:2rem;
+    margin-bottom:2rem;
+}
+
+.castHeader {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    font-size: larger;
+    padding-top:1rem;
+    padding-bottom:1rem;
+}
+
+.spaceBottom {
+    margin-bottom: 2rem;
+    margin-top:1rem;
 }
 
 .description {
