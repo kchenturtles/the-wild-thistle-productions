@@ -105,15 +105,13 @@ export default function Shows ({Remnants, LightsOut}) {
               <div className = {styles.releaseDate}><i>Episodes: {names[isHighlighted.id].total_episodes}</i></div>
               <div className = {styles.description}>{names[isHighlighted.id].description.split(".")[0] + "."}</div>
               <Link href = {transcripts[isHighlighted.id]} className={styles.link}>All Episode Transcripts</Link>
-              <hr className = {styles.space} color="green"/>
-              <div>{actors[isHighlighted.id].size > 0 ? "Cast" : ""}</div>
+              <hr className = {styles.spaceTop} color="green"/>
+              <div className = {styles.castHeader}>{actors[isHighlighted.id].size > 0 ? "Dramatis Personae:" : ""}</div>
               <div>
-                <ul>
-                {actors[isHighlighted.id].forEach((key, value) => {return(<li>{key}: {value}</li>);})}
-                </ul>
+                {...Array.from(actors[isHighlighted.id].keys()).map((key) => {return(<div className = {styles.castList}><div>{key}</div> <div>{actors[isHighlighted.id].get(key)}</div></div>);})}
               </div>
-              <div>Produced by {names[isHighlighted.id].publisher}</div>
-              <hr className = {styles.closeFit} color="green"/>
+              <div className = {styles.producer}>Produced by {names[isHighlighted.id].publisher}</div>
+              <hr className = {styles.spaceBottom} color="green"/>
               <div className = {styles.media}>
               <div className = {styles.mediaTitle}>Share and Support!</div>
               <div className = {styles.icons}>
@@ -131,7 +129,7 @@ export default function Shows ({Remnants, LightsOut}) {
               <div className = {styles.title}>Latest Episode:</div>
               <div className = {styles.latestEpisodeName}>{names[isHighlighted.id].episodes.items[0]["name"]}</div>
               <div className={styles.audio}> Preview: <audio controls src={names[isHighlighted.id].episodes.items[0]["audio_preview_url"]} className={styles.preview}>Listen to An Audio Preview Here:</audio></div>
-              <hr className = {styles.space} color="green"/>
+              <hr className = {styles.spaceBottom} color="green"/>
 
               <div>{names[isHighlighted.id].episodes.items.map((episode) => {
                 return (<div><Link href = {episode["external_urls"]["spotify"]}> <div className = {styles.spaceApart}> <div className = {styles.episode}><PlayCircle/>
