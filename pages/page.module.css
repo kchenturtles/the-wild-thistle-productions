@@ -16,8 +16,8 @@
   text-align: center;
   margin:auto;
   font-size: xx-large;
-  font-family: cursive;
-  margin-top:0;
+  font-family: "tumba-text-variable", sans-serif;
+  font-variation-settings: "wght" 400;  margin-top:0;
   margin-bottom:3rem;
 }
 
@@ -75,7 +75,7 @@
   max-width:auto;
   margin:auto;
   border-style: solid;
-  border-color: black;
+  border-color: #242225;
   border-width: 1px;
   filter:invert(10%);
 }
@@ -86,8 +86,8 @@
 
 .episodeTitle {
   font-size: xx-large;
-  font-weight:600;
-  font-family: 'Courier New', Courier, monospace;
+  font-weight:400;
+  font-family: 'tumba-text-variable', sans-serif;
   text-transform: uppercase;
   text-align: left;
 }
@@ -113,8 +113,6 @@
 
 .highlightedImage {
   max-width:500px;
-  margin-left: 0;
-  padding-left: 0;
   height:auto;
   filter:invert(10%);
 }

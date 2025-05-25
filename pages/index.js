@@ -10,24 +10,6 @@ import React from "react";
 import { InferGetStaticPropsType, GetStaticProps } from 'next'
 import { TypeAnimation } from 'react-type-animation';
 
-function setColor(idn, numEpisodes) {
-  console.log(idn);
-  console.log(numEpisodes);
-  for (let j = 0; j < numEpisodes; j++) {
-    const html = document.getElementById(j);
-    if (j == idn) {
-      console.log(html.innerHTML);
-      html.style.borderColor = "plum";
-      html.style.borderWidth = "1px";
-      html.style.borderStyle = "solid";
-    } else {
-      html.style.borderColor = "black";
-      html.style.borderWidth = "1px";
-      html.style.borderStyle = "solid";
-    }
-  }
-}
-
 function sideScroll(element, direction, speed, distance, step) {
   var scrollAmount = 0;
   var slideTimer = setInterval(function () {
@@ -50,11 +32,13 @@ export default function Page({ episodes }) {
 
   return (
     <div>
-      <Head><title>Home | The Wild Thistle Productions</title></Head>
+      <Head>
+        <title>Home | The Wild Thistle Productions</title>
+        </Head>
       <main>
         <header>
         </header>
-        <section className='section container'>
+        <section className='container max-w-[1200px] mx-auto'>
           <Image className={styles.mainImage} src={mainImage} alt="Main Photo" />
           <div className={styles.introText}>
             <p><TypeAnimation sequence={'Welcome, listener, to the worlds that we have created. In these audio dramas, you will find places where imagination has touched. We hope you enjoy!'} speed={75}
@@ -62,10 +46,9 @@ export default function Page({ episodes }) {
               style={{}} /></p>
           </div>
         </section>
-        <section className='section container'>
+        <section className='container max-w-[1100px] mx-auto'>
           <header className={styles.title}>Latest Releases</header>
-          <div className="section container">
-            <div className='cols1_1'>
+            <div className='grid grid-cols-2 gap-8 mb-8'>
               <div className={styles.imageWrapper}>
                 <Image src={episodes[isHighlighted.id]["images"][0]["url"]} width="500" height="500" className={styles.highlightedImage} />
               </div>
@@ -90,7 +73,7 @@ export default function Page({ episodes }) {
               <div className={styles.scroll} id="scroll">
                 {episodes.map((episode) => {
                   i = i + 1; const id = i; return (
-                    <div className={styles.episode} onClick={() => { setHighlighted({ id }); setColor(id, num); }}>
+                    <div className={`${styles.episode} ${i === isHighlighted.id ? 'border-[plum] border-[1px] opacity-100' : 'border-[#222222] border-[1px] opacity-25'}`} onClick={() => { setHighlighted({ id }); }}>
                       <Image id={i} src={episode["images"][0]["url"]} width="300" height="300" className={styles.image} />
                     </div>
                   );
@@ -105,7 +88,6 @@ export default function Page({ episodes }) {
                 }
               }}><ChevronRight className = {styles.rightArrow} /></div>
             </div>
-          </div>
         </section>
       </main>
     </div>

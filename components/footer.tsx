@@ -7,13 +7,9 @@ import logo from "../images/logos/spotify.png";
 export default function Footer () {
   return (
     <footer className={styles.footer}>
-      <div className="container cols1_1">
-          <div>
-          </div>
-          <div>
-            <h4>Copyright &copy; 2023 The Wild Thistle Productions</h4>
-          </div>
-        </div>
+      <div className="text-right">
+        <div className="mx-auto max-w-[1200px]">Copyright &copy; 2023 The Wild Thistle Productions</div>
+      </div>
     </footer>
   );
 }

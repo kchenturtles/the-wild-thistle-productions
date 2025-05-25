@@ -12,9 +12,9 @@ export default function Contact () {
     <title>Contact | The Wild Thistle Productions</title>
     </Head>
     <main>
-      <div className={`section container ${styles.main}`}>
+      <div className={'max-w-[1200px] mx-auto h-lvh'}>
         <h1>Leave A Comment </h1>
-        <p className = {styles.link}> thewildthistleproductions@gmail.com</p>
+        <p className = {"hover:cursor-pointer hover:underline link"}> thewildthistleproductions@gmail.com</p>
         <div className={styles.form} >
           <form action="https://api.staticforms.xyz/submit" method="post">
             <input type="hidden" name="accessKey" value="beca0155-06a5-415d-ae44-71b4b1bdff69" />

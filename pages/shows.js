@@ -75,7 +75,7 @@ export default function Shows ({Remnants, LightsOut}) {
   const [isHighlighted, setHighlighted] = React.useState({id: 0});
   
   return (
-    <section className = "section container">
+    <section className = "max-w-[1200px] mx-auto">
     <Head>
         <title>Shows | The Wild Thistle Productions</title>
       </Head>
@@ -96,9 +96,9 @@ export default function Shows ({Remnants, LightsOut}) {
           );})}
           </ul>
         </div>
-        <section className = "section container">     
+        <section className = "max-w-[1200px] mx-auto">     
             <div className = {styles.spacer}></div> 
-            <div className = "cols1_1">
+            <div className = "grid grid-cols-2 gap-8 mb-8">
             <div>
               <div className = {styles.showTitle}>{names[isHighlighted.id].name}</div>
               <hr className = {styles.showUnderline} color="green"/>

@@ -27,6 +27,7 @@ export const metadata = {
       <div>
       <Head>
         <title>The Wild Thistle Productions</title>
+        <link rel="stylesheet" href="https://use.typekit.net/yoj4fju.css"/>
       </Head>
       <main>
         <Navbar />
