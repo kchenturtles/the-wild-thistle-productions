@@ -47,17 +47,17 @@ export default function Page({ episodes }) {
         </section>
         <section className='container max-w-[1200px] mx-auto px-8 sm:px-12 md:px-24 lg:px-36'>
           <header className={styles.title}>Latest Releases</header>
-            <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 mb-8 transition-transform duration-300 items-center'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 mb-8 transition-transform duration-300 items-center'>
               <div className={styles.imageWrapper}>
                 <img src={episodes[isHighlighted.id]["images"][0]["url"]} width="500" height="500" className={styles.highlightedImage} />
               </div>
               <div>
-                <div className="text-center sm:text-left sm:mb-2"> {episodes[isHighlighted.id]["release_date"]}</div>
-                <hr color="green" className={`mx-8 sm:mr-8 sm:ml-0 min-h-[3px] mb-4 sm:mb-8`}></hr>
-                <div className={`${styles.episodeTitle} text-center sm:text-left text-xl sm:text-2xl md:text-3xl lg:text-4xl`}>{episodes[isHighlighted.id]["name"]}</div>
-                <div className="my-4 text-center sm:text-left">{episodes[isHighlighted.id]["description"].split("***")[0]}</div>
-                <div className={`${styles.audio} !hidden sm:!block`}> Preview: <audio controls src={episodes[isHighlighted.id]["audio_preview_url"]} className={styles.preview}>Listen to An Audio Preview Here:</audio></div>
-                <Link href={episodes[isHighlighted.id]["external_urls"]["spotify"]}><div className="button mx-auto sm:m-0"><PlayCircle /> Listen Now</div></Link>
+                <div className="text-center md:text-left md:mb-2"> {episodes[isHighlighted.id]["release_date"]}</div>
+                <hr color="green" className={`mx-8 md:mr-8 md:ml-0 min-h-[3px] mb-4 md:mb-8`}></hr>
+                <div className={`${styles.episodeTitle} text-center md:text-left text-xl sm:text-2xl md:text-3xl lg:text-4xl`}>{episodes[isHighlighted.id]["name"]}</div>
+                <div className="my-4 text-center md:text-left">{episodes[isHighlighted.id]["description"].split("***")[0]}</div>
+                <div className={`${styles.audio} !hidden md:!block`}> Preview: <audio controls src={episodes[isHighlighted.id]["audio_preview_url"]} className={styles.preview}>Listen to An Audio Preview Here:</audio></div>
+                <Link href={episodes[isHighlighted.id]["external_urls"]["spotify"]}><div className="button mx-auto md:m-0"><PlayCircle /> Listen Now</div></Link>
               </div>
             </div>
             {/* <div className={styles.episodes}>

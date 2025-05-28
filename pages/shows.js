@@ -196,8 +196,8 @@ export default function Shows ({Remnants, LightsOut}) {
         </div>
         <section className = "max-w-[1200px] mx-auto">     
             <div className = {styles.spacer}></div> 
-            <div className = "grid grid-cols-2 gap-8 mb-8">
-            <div>
+            <div className = "grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div className="order-2 md:!order-first">
               <div className = {styles.showTitle}>{names[isHighlighted.id].name}</div>
               <hr className = {styles.showUnderline} color="green"/>
               <div className = {styles.releaseDate}><i>Episodes: {names[isHighlighted.id].total_episodes}</i></div>
@@ -223,7 +223,7 @@ export default function Shows ({Remnants, LightsOut}) {
               </div>
               </div>
               <div>
-              <Link href = {names[isHighlighted.id]["external_urls"]["spotify"]}><img src = {names[isHighlighted.id].images[0]["url"]} width = "500" height = "500" className = {styles.image}/></Link>
+              <Link href = {names[isHighlighted.id]["external_urls"]["spotify"]}><img src = {names[isHighlighted.id].images[0]["url"]} width = "500" height = "500" className = {`${styles.image} mx-auto md:m-0`}/></Link>
               <div className = {styles.title}>Latest Episode:</div>
               <div className = {styles.latestEpisodeName}>{names[isHighlighted.id].episodes.items[0]["name"]}</div>
               <div className={styles.audio}> Preview: <audio controls src={names[isHighlighted.id].episodes.items[0]["audio_preview_url"]} className={styles.preview}>Listen to An Audio Preview Here:</audio></div>
