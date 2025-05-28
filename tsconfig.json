@@ -29,7 +29,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "pages/shows.js"  ],
   "exclude": [
     "node_modules"
   ]

@@ -20,17 +20,19 @@ const urls = ['https://api.spotify.com/v1/shows/7HdlfouqPBS3PLf1ivCfdN',
  'https://api.spotify.com/v1/shows/7ePxTS7GYVZ0uBAZrueeaD',
 ];
 
-interface Role {
-  name: string;
-  actor: Actor;
-}
+/**
+ * @typedef {Object} Actor
+ * @property {string} name
+ * @property {string} bio
+ */
 
-interface Actor {
-  name: string;
-  bio: string;
-}
+/**
+ * @typedef {Object} Role
+ * @property {string} name
+ * @property {Actor} actor
+ */
 
-const actorList: Actor[] = [
+const actorList = [
   {
     name: "Kate Dickinson",
     bio: "Kate Dickinson",
@@ -69,7 +71,7 @@ const actorList: Actor[] = [
   },
 ]
 
-const actorsLightsOut: Role[] = [
+const actorsLightsOut = [
   {
     name: "Sadie Maxwell",
     actor: actorList[0],
