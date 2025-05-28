@@ -76,7 +76,7 @@ h1 {
   border: 1px;
   border-radius: 0.75em;
   background-color: var(--color-brand);
-  color: white;
+  color: #222222;
   padding: 0.5rem 1rem;
   max-width: fit-content;
   align-items: center;
@@ -85,7 +85,6 @@ h1 {
   font-family: 'tumba-text-variable';
   border: 2px solid var(--color-brand);
   border-radius: 1em;
-  color: white;
   padding: 0.5rem 1rem;
   transition: background-color 0.2s ease, color 0.2s ease;
 }

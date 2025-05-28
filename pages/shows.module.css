@@ -83,8 +83,8 @@
 .showTitle {
     text-align: left;
     font-size: xx-large;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 600;
+    font-family: 'tumba-text-variable', sans-serif;
+    font-weight: 500;
     color:white;
     
 }
@@ -98,8 +98,8 @@
     text-align: left;
     font-size: x-large;
     line-height: 2rem;
-    font-weight:600;
-    font-family:'Courier New', Courier, monospace;
+    font-weight:500;
+    font-family:'tumba-text-variable', sans-serif;
     margin-top: 1rem;
 }
 
@@ -123,8 +123,8 @@
 .mediaTitle {
     padding-bottom:1rem;
     font-size: x-large;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 600;
+    font-family: 'tumba-text-variable', sans-serif;
+    font-weight: 500;
 }
 
 .icons {
@@ -152,12 +152,11 @@
 }
 
 .link {
-    color: plum;
+    color: white;
     font-size: large;
     text-align: left;
     padding:0.5rem;
     display: flex;
-    text-decoration: underline;
 }
 
 .preview {
@@ -165,8 +164,8 @@
   }
 
 .link:hover {
-    text-decoration: none;
-    opacity: 0.75;
+    text-decoration: underline;
+    color: plum;
 }
 
 .spaceTop {
@@ -180,8 +179,8 @@
 }
 
 .castHeader {
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 600;
+    font-family: 'tumba-text-variable', sans-serif;
+    font-weight: 500;
     font-size: larger;
     padding-top:1rem;
     padding-bottom:1rem;
@@ -202,4 +201,24 @@
 .transcripts {
     margin:auto;
     max-width: fit-content;
+}
+
+/* Tooltip text */
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: aqua;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

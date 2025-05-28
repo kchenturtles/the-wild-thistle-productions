@@ -12,8 +12,8 @@ export default function Contact () {
     <title>Contact | The Wild Thistle Productions</title>
     </Head>
     <main>
-      <div className={'max-w-[1200px] mx-auto h-lvh'}>
-        <h1>Leave A Comment </h1>
+      <div className={'h-lvh container max-w-[1200px] mx-auto px-8 sm:px-12 md:px-24 lg:px-36'}>
+        <div className="title mt-12 text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Leave A Comment </div>
         <p className = {"hover:cursor-pointer hover:underline link"}> thewildthistleproductions@gmail.com</p>
         <div className={styles.form} >
           <form action="https://api.staticforms.xyz/submit" method="post">

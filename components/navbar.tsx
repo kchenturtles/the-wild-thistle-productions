@@ -1,13 +1,12 @@
 import Link from "next/link";
 import React from "react";
-import Image from "next-image-export-optimizer";
 import { Menu} from "react-feather";
 import { X } from "react-feather";
 import { Instagram } from "react-feather";
 import { Twitter } from "react-feather";
 import { Youtube } from "react-feather";
-import logo from "../images/logos/thistle.png";
 import styles from "./navbar.module.css";
+import logo from "../images/logos/thistle.png";
 
 const Navbar = () => {
   let links = [
@@ -41,12 +40,12 @@ const Navbar = () => {
 
   return (
     <header className={styles.wrapper}>
-      <div className='w-full px-72'>
-        <div className={`flex justify-between items-center border-b-4 border-[plum] px-16`}>
+      <div className='w-full'>
+        <div className={`flex justify-between items-center border-b-4 border-[plum]`} style={{padding: "0 1rem"}}>
           <Link href="/" onClick = {() => {setOpen(false)}}>
             <div className = {'flex items-center nowrap'}>
-              <Image
-                src={logo}
+              <img
+                src={logo.src}
                 alt= "Logo"
                 className={styles.logo}
               /> 
@@ -55,12 +54,12 @@ const Navbar = () => {
             </Link>
             <span className="visually-hidden">Home</span>
           
-          <div className = "flex items-center gap-8 text-3xl">
-          <div className= "flex items-center gap-8 text-3xl">
-            <Link className = 'link' href = "/shows" onClick = {() => {setOpen(false)}}> Shows </Link>
-            <Link className = 'link' onClick = {() => {setOpen(false)}} href = "https://drive.google.com/drive/folders/1Az_03z0v7c8jZdKIGyCo5ssf9DPwK1F_">Transcripts</Link>
+          <div className = "flex items-center gap-8 text-xl">
+          <div className= "items-center gap-8 text-xl hidden sm:flex">
+            <Link className = {styles.link} target = "_blank" href = "/shows" onClick = {() => {setOpen(false)}}> Shows </Link>
+            <Link className = {styles.link} target = "_blank" onClick = {() => {setOpen(false)}} href = "https://drive.google.com/drive/folders/1Az_03z0v7c8jZdKIGyCo5ssf9DPwK1F_">Transcripts</Link>
           </div>
-          <div className={`h-fit p-0 hover:cursor-pointer transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} onClick={() => setOpen(!isOpen)}>
+          <div className={`h-24 w-24 p-0 hover:cursor-pointer transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} onClick={() => setOpen(!isOpen)} style = {{height: "24px", width: "24px"}}>
             {isOpen ? (
               <>
                 <X />
@@ -75,14 +74,35 @@ const Navbar = () => {
           </div>
           </div>
         </div>          
-          <div className = {`fixed h-full right-0 top-20 bg-[plum] text-[#111111] text-2xl p-10 pr-20 w-min shadow-xl transition-all duration-600 ${isOpen ? "visible opacity-100" : "collapse opacity-0"} xl:collapse`}>
-            <div className = "block w-min">
-              <ul className="list-none">
+          <div className = {`fixed h-full right-0 top-20 bg-[#111111] text-[plum] sm:border-l-4 border-[#DDA0DD] border-double border-t-0 p-10 border-b-0 border-r-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 shadow-xl transition-all duration-600 ${isOpen ? "visible opacity-100" : "collapse opacity-0"} xl:collapse`}>
+            <div className = "block">
+              <ul className="list-none text-xl">
+                <li className="mb-4 block sm:hidden">
+                  <Link
+                    href="/shows"
+                    target = "_blank"
+                    className={styles.link}
+                    onClick={() => {setOpen(!isOpen)}}
+                  >
+                    Shows
+                  </Link>
+                </li>
+                <li className="mb-4 block sm:hidden">
+                  <Link
+                    target = "_blank"
+                    href="https://drive.google.com/drive/folders/1Az_03z0v7c8jZdKIGyCo5ssf9DPwK1F_"
+                    className={styles.link}
+                    onClick={() => {setOpen(!isOpen)}}
+                  >
+                    Transcripts
+                  </Link>
+                </li>
                 {links.map(({ label, to }) => (
-                  <li key={to}>
+                  <li key={to} className="mb-4">
                     <Link
                       href={to}
-                      className={styles.mobileNavLink} onClick = {() => {setOpen(!isOpen)}}
+                      className={styles.link} onClick = {() => {setOpen(!isOpen)}}
+                      target = "_blank"
                       >
                       {label}
                     </Link>

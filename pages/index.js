@@ -1,6 +1,5 @@
 import styles from "./page.module.css";
 import Overlay from "../components/overlay";
-import Image from "next-image-export-optimizer";
 import Link from "next/link";
 import mainImage from "../images/Cover.png";
 import Head from 'next/head';
@@ -38,56 +37,56 @@ export default function Page({ episodes }) {
       <main>
         <header>
         </header>
-        <section className='container max-w-[1200px] mx-auto'>
-          <Image className={styles.mainImage} src={mainImage} alt="Main Photo" />
+        <section className='container max-w-[1200px] mx-auto px-8 sm:px-12 md:px-24 lg:px-36'>
+          <img className={styles.mainImage} src={mainImage.src} alt="Main Photo" />
           <div className={styles.introText}>
             <p><TypeAnimation sequence={'Welcome, listener, to the worlds that we have created. In these audio dramas, you will find places where imagination has touched. We hope you enjoy!'} speed={75}
               repeat={1}
               style={{}} /></p>
           </div>
         </section>
-        <section className='container max-w-[1100px] mx-auto'>
+        <section className='container max-w-[1200px] mx-auto px-8 sm:px-12 md:px-24 lg:px-36'>
           <header className={styles.title}>Latest Releases</header>
-            <div className='grid grid-cols-2 gap-8 mb-8'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 mb-8 transition-transform duration-300 items-center'>
               <div className={styles.imageWrapper}>
-                <Image src={episodes[isHighlighted.id]["images"][0]["url"]} width="500" height="500" className={styles.highlightedImage} />
+                <img src={episodes[isHighlighted.id]["images"][0]["url"]} width="500" height="500" className={styles.highlightedImage} />
               </div>
               <div>
-                <div className={styles.releaseDate}>{episodes[isHighlighted.id]["release_date"]}</div>
-                <hr color="green" className={styles.separator}></hr>
-                <div className={styles.episodeTitle}>{episodes[isHighlighted.id]["name"]}</div>
-                <div className={styles.description}>{episodes[isHighlighted.id]["description"].split("***")[0]}</div>
-                <div className={styles.audio}> Preview: <audio controls src={episodes[isHighlighted.id]["audio_preview_url"]} className={styles.preview}>Listen to An Audio Preview Here:</audio></div>
-                <Link href={episodes[isHighlighted.id]["external_urls"]["spotify"]}><div className="button"><PlayCircle /> Listen Now</div></Link>
+                <div className="text-center sm:text-left sm:mb-2"> {episodes[isHighlighted.id]["release_date"]}</div>
+                <hr color="green" className={`mx-8 sm:mr-8 sm:ml-0 min-h-[3px] mb-4 sm:mb-8`}></hr>
+                <div className={`${styles.episodeTitle} text-center sm:text-left text-xl sm:text-2xl md:text-3xl lg:text-4xl`}>{episodes[isHighlighted.id]["name"]}</div>
+                <div className="my-4 text-center sm:text-left">{episodes[isHighlighted.id]["description"].split("***")[0]}</div>
+                <div className={`${styles.audio} !hidden sm:!block`}> Preview: <audio controls src={episodes[isHighlighted.id]["audio_preview_url"]} className={styles.preview}>Listen to An Audio Preview Here:</audio></div>
+                <Link href={episodes[isHighlighted.id]["external_urls"]["spotify"]}><div className="button mx-auto sm:m-0"><PlayCircle /> Listen Now</div></Link>
               </div>
             </div>
-            <div className={styles.episodes}>
+            {/* <div className={styles.episodes}>
               <div onClick={() => {
                 var container = document.getElementById('scroll');
-                sideScroll(container, 'left', 25, (container.clientWidth)/5 - 7, 10);
+                var item = document.getElementById('square' + isHighlighted.id);
+                sideScroll(container, 'left', 25, item.scrollWidth, 10);
                 if(isHighlighted.id > 0) {
                   setHighlighted({id: isHighlighted.id - 1});
-                  setColor(isHighlighted.id - 1, num);
                 }
               }}><ChevronLeft className = {styles.leftArrow} /></div>
               <div className={styles.scroll} id="scroll">
                 {episodes.map((episode) => {
                   i = i + 1; const id = i; return (
-                    <div className={`${styles.episode} ${i === isHighlighted.id ? 'border-[plum] border-[1px] opacity-100' : 'border-[#222222] border-[1px] opacity-25'}`} onClick={() => { setHighlighted({ id }); }}>
-                      <Image id={i} src={episode["images"][0]["url"]} width="300" height="300" className={styles.image} />
+                    <div id={"square" + (i-1)} className={`${styles.episode} transition-transform duration-300 ${i === isHighlighted.id ? 'border-[plum] border-[1px] opacity-100' : 'border-[#222222] border-[1px] opacity-25'}`} onClick={() => { setHighlighted({ id }); }}>
+                      <img id={i} src={episode["images"][0]["url"]} width="300" height="300" className={styles.image} />
                     </div>
                   );
                 })}
               </div>
               <div onClick={() => {
                 var container = document.getElementById('scroll');
-                sideScroll(container, 'right', 25, (container.clientWidth)/5 - 7, 10);
+                var item = document.getElementById('square' + isHighlighted.id);
+                sideScroll(container, 'right', 25, (item.scrollWidth), 10);
                 if(isHighlighted.id < episodes.length-1) {
                   setHighlighted({id: isHighlighted.id + 1});
-                  setColor(isHighlighted.id + 1, num);
                 }
               }}><ChevronRight className = {styles.rightArrow} /></div>
-            </div>
+            </div> */}
         </section>
       </main>
     </div>

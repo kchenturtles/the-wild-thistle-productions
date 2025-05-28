@@ -85,11 +85,9 @@
 }
 
 .episodeTitle {
-  font-size: xx-large;
-  font-weight:400;
+  font-weight:500;
   font-family: 'tumba-text-variable', sans-serif;
   text-transform: uppercase;
-  text-align: left;
 }
 
 .audio {
@@ -115,28 +113,14 @@
   max-width:500px;
   height:auto;
   filter:invert(10%);
+  padding: 1rem;
+  border-style: solid;
+  border-color: #242225;
+  border-width: 1px;
 }
 
 .imageWrapper {
   margin-bottom: 1rem;
-}
-
-.description {
-  font-size: large;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-}
-
-.releaseDate {
-  text-align: left;
-  margin-bottom: 1.5rem;
-  font-size: larger;
-}
-
-.separator {
-  margin-right:4rem;
-  min-height: 3px;
-  margin-bottom: 2rem;
 }
 
 .episodeLink {

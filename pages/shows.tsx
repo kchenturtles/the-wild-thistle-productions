@@ -1,9 +1,8 @@
 "use client";
 
 import styles from "./shows.module.css";
-import Image from "next-image-export-optimizer";
 import Link from "next/link";
-import { ExternalLink, Facebook, Mail, PlayCircle } from "react-feather";
+import { ExternalLink, Facebook, Headphones, Mail, Mic, Music, PlayCircle, Speaker } from "react-feather";
 import PageTitle from "../components/page-title";
 import React from "react";
 import fetch from 'node-fetch';
@@ -21,20 +20,103 @@ const urls = ['https://api.spotify.com/v1/shows/7HdlfouqPBS3PLf1ivCfdN',
  'https://api.spotify.com/v1/shows/7ePxTS7GYVZ0uBAZrueeaD',
 ];
 
-const actorsLightsOut = new Map();
-actorsLightsOut.set("Sadie Maxwell", "Kate Dickinson");
-actorsLightsOut.set("Zara Williams", "Sally Jamrog");
-actorsLightsOut.set("Miriam Silas", "Katy Silva");
-actorsLightsOut.set("Jo Treman", "Kaeleen Chen");
-actorsLightsOut.set("Worker (Terry)", "Andi Alexander-Smith");
-actorsLightsOut.set("Paul Williams", "Theo Sloan");
-actorsLightsOut.set("Guard", "Alder Chu");
-actorsLightsOut.set("Archive Worker", "Angus Abercrombie");
-actorsLightsOut.set("Passenger", "Jackson Phelps");
-actorsLightsOut.set("Teacher", "Jackson Phelps");
-actorsLightsOut.set("Monster", "Jackson Phelps");
+interface Role {
+  name: string;
+  actor: Actor;
+}
 
-const actorsRemnants = new Map();
+interface Actor {
+  name: string;
+  bio: string;
+}
+
+const actorList: Actor[] = [
+  {
+    name: "Kate Dickinson",
+    bio: "Kate Dickinson",
+  },
+  {
+    name: "Sally Jamrog",
+    bio: "Sally Jamrog",
+  },
+  {
+    name: "Katy Silva",
+    bio: "Katy Silva",
+  },
+  {
+    name: "Kaeleen Chen",
+    bio: "Kaeleen Chen",
+  },
+  {
+    name: "Andi Alexander-Smith",
+    bio: "Andi Alexander-Smith",
+  },
+  {
+    name: "Theo Sloan",
+    bio: "Theo Sloan",
+  },
+  {
+    name: "Alder Chu",
+    bio: "Alder Chu",
+  },
+  {
+    name: "Angus Abercrombie",
+    bio: "Angus Abercrombie",
+  },
+  {
+    name: "Jackson Phelps",
+    bio: "Jackson Phelps",
+  },
+]
+
+const actorsLightsOut: Role[] = [
+  {
+    name: "Sadie Maxwell",
+    actor: actorList[0],
+  },
+  {
+    name: "Zara Williams",
+    actor: actorList[1],
+  },
+  {
+    name: "Miriam Silas",
+    actor: actorList[2],
+  },
+  {
+    name: "Jo Treman",
+    actor: actorList[3],
+  },
+  {
+    name: "Worker (Terry)",
+    actor: actorList[4],
+  },
+  {
+    name: "Paul Williams",
+    actor: actorList[5],
+  },
+  {
+    name: "Guard",
+    actor: actorList[6],
+  },
+  {
+    name: "Archive Worker",
+    actor: actorList[7],
+  },
+  {
+    name: "Passenger",
+    actor: actorList[8],
+  },
+  {
+    name: "Teacher",
+    actor: actorList[8],
+  },
+  {
+    name: "Monster",
+    actor: actorList[8],
+  },
+];
+
+const actorsRemnants = [];
 
 const transcriptsLightsOut = "https://drive.google.com/drive/folders/1mf7VR4szJyBBYbRWcl9lWLz7h6rhBpBv"; 
 
@@ -68,28 +150,42 @@ function millisToMinutesAndSeconds(millis) {
 }
 
 export default function Shows ({Remnants, LightsOut}) {
+  const [showToolTip, setShowToolTip] = React.useState(-1);
   var i = -1;
   const num = 2;
 
   const names = [LightsOut, Remnants];
   const [isHighlighted, setHighlighted] = React.useState({id: 0});
+
+  const [position, setPosition] = React.useState({ x: 0, y: 0 });
+
+  React.useEffect(() => {
+    const updateMousePosition = (e) => {
+      setPosition({ x: e.pageX, y: e.pageY });
+    };
+
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
   
   return (
-    <section className = "max-w-[1200px] mx-auto">
+    <section className = "max-w-[1200px] mx-auto relative px-8 sm:px-12 md:px-24 lg:px-36">
     <Head>
         <title>Shows | The Wild Thistle Productions</title>
       </Head>
     <main>
-      <PageTitle> 
+      <div className="title" style={{fontSize: "xxx-large", fontWeight: "600", marginTop: "4rem", marginBottom: "4rem"}}>
         Shows
-      </PageTitle>
+      </div>
       <div>
           <ul className  = {styles.episodes}>
           {names.map((name) => {i = i + 1; const id = i; return (
             <div>
           <li onClick = {() => {setHighlighted({id}); setColor(id, num); console.log(names[isHighlighted.id])}}>
             <div>
-            <Image id = {i} src = {name["images"][0]["url"]} width = "300" height = "300" className = {styles.topImage}/>
+            <img id = {i} src = {name["images"][0]["url"]} width = "300" height = "300" className = {styles.topImage}/>
             </div>
             </li>
             </div>
@@ -104,28 +200,28 @@ export default function Shows ({Remnants, LightsOut}) {
               <hr className = {styles.showUnderline} color="green"/>
               <div className = {styles.releaseDate}><i>Episodes: {names[isHighlighted.id].total_episodes}</i></div>
               <div className = {styles.description}>{names[isHighlighted.id].description.split(".")[0] + "."}</div>
-              <Link href = {transcripts[isHighlighted.id]} className={styles.link}>All Episode Transcripts</Link>
+              <Link href = {transcripts[isHighlighted.id]} className="button">All Episode Transcripts</Link>
               <hr className = {styles.spaceTop} color="green"/>
-              <div className = {styles.castHeader}>{actors[isHighlighted.id].size > 0 ? "Dramatis Personae:" : ""}</div>
+              <div className = {styles.castHeader}>{actors[isHighlighted.id].length > 0 ? "Dramatis Personae:" : ""}</div>
               <div>
-                {...Array.from(actors[isHighlighted.id].keys()).map((key) => {return(<div className = {styles.castList}><div>{key}</div> <div>{actors[isHighlighted.id].get(key)}</div></div>);})}
+                {actors[isHighlighted.id].map((actor, index) => {return(<div onMouseEnter={() => setShowToolTip(index)} onMouseLeave={() => setShowToolTip(-1)}><div className = {styles.castList}><div>{actor.name}</div> <div>{actor.actor.name}</div></div>
+                <span className={`${showToolTip === index ? "inline-block absolute text-black bg-white z-10 p-1 px-2 rounded-sm" : "hidden"} ml-8 md:ml-0`} style={{left: position.x - 25, top: position.y - 150, pointerEvents: "none"}}>{actor.actor.bio}</span>
+                </div>);})}
               </div>
               <div className = {styles.producer}>Produced by {names[isHighlighted.id].publisher}</div>
               <hr className = {styles.spaceBottom} color="green"/>
               <div className = {styles.media}>
               <div className = {styles.mediaTitle}>Share and Support!</div>
               <div className = {styles.icons}>
-              <Link href = "https://www.twitter.com/" target = "_blank"><Twitter className = {styles.mediaIcon}/></Link>
-              <Link href = "https://www.facebook.com/" target = "_blank"><Facebook className = {styles.mediaIcon}/></Link>
-              <Link href = "https://www.gmail.com/" target = "_blank"><Mail className = {styles.mediaIcon}/></Link>
+              <Link href = "https://open.spotify.com/show/4MqPuRVONKkOiu2SOAYgAf" target = "_blank"><Headphones className = {styles.mediaIcon}/></Link>
               <Link href = "https://www.instagram.com/the_wild_thistle_productions/" target = "_blank"><Instagram className = {styles.mediaIcon}/></Link>
-             <Link href = "https://www.youtube.com/channel/UCh936OgeD_W7DS4bcQv1B0A" target = "_blank"><Youtube className = {styles.mediaIcon}/></Link>
-             <Link href = "https://www.buymeacoffee.com/thewildthistleproductions" className = {styles.link} onClick = {() => {setOpen(!isOpen)}}>Buy Me a Coffee</Link>
+              <Link href = "https://www.youtube.com/channel/UCh936OgeD_W7DS4bcQv1B0A" target = "_blank"><Youtube className = {styles.mediaIcon}/></Link>
+              <Link href = "https://www.buymeacoffee.com/thewildthistleproductions" target = "_blank" className = {styles.link}>Buy Me a Coffee</Link>
               </div>
               </div>
               </div>
               <div>
-              <Link href = {names[isHighlighted.id]["external_urls"]["spotify"]}><Image src = {names[isHighlighted.id].images[0]["url"]} width = "500" height = "500" className = {styles.image}/></Link>
+              <Link href = {names[isHighlighted.id]["external_urls"]["spotify"]}><img src = {names[isHighlighted.id].images[0]["url"]} width = "500" height = "500" className = {styles.image}/></Link>
               <div className = {styles.title}>Latest Episode:</div>
               <div className = {styles.latestEpisodeName}>{names[isHighlighted.id].episodes.items[0]["name"]}</div>
               <div className={styles.audio}> Preview: <audio controls src={names[isHighlighted.id].episodes.items[0]["audio_preview_url"]} className={styles.preview}>Listen to An Audio Preview Here:</audio></div>
@@ -133,7 +229,7 @@ export default function Shows ({Remnants, LightsOut}) {
 
               <div>{names[isHighlighted.id].episodes.items.map((episode) => {
                 return (<div><Link href = {episode["external_urls"]["spotify"]}> <div className = {styles.spaceApart}> <div className = {styles.episode}><PlayCircle/>
-                <div class = {styles.episodeName}>{episode["name"]}</div></div> <div>{millisToMinutesAndSeconds(episode["duration_ms"])}</div></div> </Link>
+                <div className = {styles.episodeName}>{episode["name"]}</div></div> <div>{millisToMinutesAndSeconds(episode["duration_ms"])}</div></div> </Link>
                     <div color = "plum" className = {styles.episodeUnderline}></div></div>
                 );
               })}</div>
