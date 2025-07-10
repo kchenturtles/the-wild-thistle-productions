@@ -18,6 +18,7 @@ export const metadata = {
 
 const urls = ['https://api.spotify.com/v1/shows/7HdlfouqPBS3PLf1ivCfdN',
  'https://api.spotify.com/v1/shows/7ePxTS7GYVZ0uBAZrueeaD',
+ 'https://open.spotify.com/show/6Rq1m3JHtixBJq7XnPfCvG?trackId=2SOceEcDVIyvXtrCdG0RPw',
 ];
 
 /**
@@ -69,6 +70,26 @@ const actorList = [
     name: "Jackson Phelps",
     bio: "Jackson Phelps",
   },
+  {
+    name: "Maya S.",
+    bio: "Maya S.",
+  },
+  {
+    name: "Alexander Crowe",
+    bio: "Alexander Crowe",
+  },
+  {
+    name: "Aster Gamarnik",
+    bio: "Aster Gamarnik",
+  },
+  {
+    name: "Fiona S.",
+    bio: "Fiona S.",
+  },
+  {
+    name: "Hannah S.",
+    bio: "Hannah S.",
+  }
 ]
 
 const actorsLightsOut = [
@@ -120,12 +141,61 @@ const actorsLightsOut = [
 
 const actorsRemnants = [];
 
+const actorsSyncopa = [
+  {
+    name: "Mia Stephens",
+    actor: actorList[2],
+  },
+  {
+    name: "Elena Harper",
+    actor: actorList[9],
+  },
+  {
+    name: "Hayden Kent",
+    actor: actorList[10],
+  },
+  {
+    name: "Evelyn Harper",
+    actor: actorList[0],
+  },
+  {
+    name: "Paul Sullivan",
+    actor: actorList[11],
+  },
+  {
+    name: "Gregory Kelly",
+    actor: actorList[6],
+  },
+  {
+    name: "Brendon Waller",
+    actor: actorList[4],
+  },
+  {
+    name: "Officer",
+    actor: actorList[12],
+  },
+  {
+    name: "Announcer",
+    actor: actorList[1],
+  },
+  {
+    name: "Person",
+    actor: actorList[5],
+  },
+  {
+    name: "Newscaster",
+    actor: actorList[13],
+  }
+]
+
 const transcriptsLightsOut = "https://drive.google.com/drive/folders/1mf7VR4szJyBBYbRWcl9lWLz7h6rhBpBv"; 
 
 const transcriptsRemnants = "https://drive.google.com/drive/folders/1Eze6Lqetc0Q6aronlB0x7miS7JR35mt-";
 
-const transcripts = [transcriptsLightsOut, transcriptsRemnants];
-const actors = [actorsLightsOut, actorsRemnants];
+const transcriptsSyncopa = "https://drive.google.com/drive/folders/1KGQTjwuh8OcMN7GRvHjmsPDJC7WEn6TH";
+
+const transcripts = [transcriptsLightsOut, transcriptsRemnants, transcriptsSyncopa];
+const actors = [actorsLightsOut, actorsRemnants, actorsSyncopa];
 
 function setColor(idn, numEpisodes) {
   console.log(idn);
@@ -151,12 +221,12 @@ function millisToMinutesAndSeconds(millis) {
   return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 }
 
-export default function Shows ({Remnants, LightsOut}) {
+export default function Shows ({Remnants, LightsOut, Syncopa}) {
   const [showToolTip, setShowToolTip] = React.useState(-1);
   var i = -1;
-  const num = 2;
+  const num = 3;
 
-  const names = [LightsOut, Remnants];
+  const names = [LightsOut, Remnants, Syncopa];
   const [isHighlighted, setHighlighted] = React.useState({id: 0});
 
   const [position, setPosition] = React.useState({ x: 0, y: 0 });
@@ -173,7 +243,7 @@ export default function Shows ({Remnants, LightsOut}) {
   }, []);
   
   return (
-    <section className = "max-w-[1200px] mx-auto relative px-8 sm:px-12 md:px-24 lg:px-36">
+    <section className = "max-w-[1200px] mx-auto relative px-8 sm:px-12 md:px-24 lg:px-30">
     <Head>
         <title>Shows | The Wild Thistle Productions</title>
       </Head>
@@ -187,7 +257,7 @@ export default function Shows ({Remnants, LightsOut}) {
             <div>
           <li onClick = {() => {setHighlighted({id}); setColor(id, num); console.log(names[isHighlighted.id])}}>
             <div>
-            <img id = {i} src = {name["images"][0]["url"]} width = "300" height = "300" className = {styles.topImage}/>
+              <img id = {i} src = {name["images"][0]["url"]} width = "300" height = "300" className = {styles.topImage}/>
             </div>
             </li>
             </div>
@@ -292,10 +362,20 @@ headers: {
 const ldata = await lights.json();
 const LightsOut = ldata;
 
+const syncopa = await fetch('https://api.spotify.com/v1/shows/6Rq1m3JHtixBJq7XnPfCvG', {
+  next: { revalidate: 10 },
+headers: {
+  Authorization: 'Bearer ' + accessToken
+}
+});
+
+const sdata = await syncopa.json();
+const Syncopa = sdata;
+
 console.log(Remnants);
 
   return {
-      props: {Remnants, LightsOut},
+      props: {Remnants, LightsOut, Syncopa},
       revalidate: 10,
   };
 }

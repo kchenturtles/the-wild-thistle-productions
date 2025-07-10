@@ -56,7 +56,7 @@ const Navbar = () => {
           
           <div className = "flex items-center gap-8 text-xl">
           <div className= "items-center gap-8 text-xl hidden sm:flex">
-            <Link className = {styles.link} target = "_blank" href = "/shows" onClick = {() => {setOpen(false)}}> Shows </Link>
+            <Link className = {styles.link} href = "/shows" onClick = {() => {setOpen(false)}}> Shows </Link>
             <Link className = {styles.link} target = "_blank" onClick = {() => {setOpen(false)}} href = "https://drive.google.com/drive/folders/1Az_03z0v7c8jZdKIGyCo5ssf9DPwK1F_">Transcripts</Link>
           </div>
           <div className={`h-24 w-24 p-0 hover:cursor-pointer transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} onClick={() => setOpen(!isOpen)} style = {{height: "24px", width: "24px"}}>
@@ -80,7 +80,6 @@ const Navbar = () => {
                 <li className="mb-4 block sm:hidden">
                   <Link
                     href="/shows"
-                    target = "_blank"
                     className={styles.link}
                     onClick={() => {setOpen(!isOpen)}}
                   >
@@ -89,8 +88,8 @@ const Navbar = () => {
                 </li>
                 <li className="mb-4 block sm:hidden">
                   <Link
-                    target = "_blank"
                     href="https://drive.google.com/drive/folders/1Az_03z0v7c8jZdKIGyCo5ssf9DPwK1F_"
+                    target = "_blank"
                     className={styles.link}
                     onClick={() => {setOpen(!isOpen)}}
                   >
@@ -102,7 +101,6 @@ const Navbar = () => {
                     <Link
                       href={to}
                       className={styles.link} onClick = {() => {setOpen(!isOpen)}}
-                      target = "_blank"
                       >
                       {label}
                     </Link>
