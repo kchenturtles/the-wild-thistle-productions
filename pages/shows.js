@@ -272,7 +272,7 @@ export default function Shows ({Remnants, LightsOut, Syncopa}) {
               <hr className = {styles.showUnderline} color="green"/>
               <div className = {styles.releaseDate}><i>Episodes: {names[isHighlighted.id].total_episodes}</i></div>
               <div className = {styles.description}>{names[isHighlighted.id].description.split(".")[0] + "."}</div>
-              <Link href = {transcripts[isHighlighted.id]} className="button">All Episode Transcripts</Link>
+              <Link href = {transcripts[isHighlighted.id]} target="_blank" className="button">All Episode Transcripts</Link>
               <hr className = {styles.spaceTop} color="green"/>
               <div className = {styles.castHeader}>{actors[isHighlighted.id].length > 0 ? "Dramatis Personae:" : ""}</div>
               <div>
@@ -296,7 +296,7 @@ export default function Shows ({Remnants, LightsOut, Syncopa}) {
               <Link href = {names[isHighlighted.id]["external_urls"]["spotify"]}><img src = {names[isHighlighted.id].images[0]["url"]} width = "500" height = "500" className = {`${styles.image} mx-auto md:m-0`}/></Link>
               <div className = {styles.title}>Latest Episode:</div>
               <div className = {styles.latestEpisodeName}>{names[isHighlighted.id].episodes.items[0]["name"]}</div>
-              <div className={styles.audio}> Preview: <audio controls src={names[isHighlighted.id].episodes.items[0]["audio_preview_url"]} className={styles.preview}>Listen to An Audio Preview Here:</audio></div>
+              <div className={styles.audio}> <span className="pr-2">Preview:</span> <audio controls src={names[isHighlighted.id].episodes.items[0]["audio_preview_url"]} className={styles.preview}>Listen to An Audio Preview Here:</audio></div>
               <hr className = {styles.spaceBottom} color="green"/>
 
               <div>{names[isHighlighted.id].episodes.items.map((episode) => {
